@@ -1,0 +1,702 @@
+[
+    {
+        "Topo": {
+            "stubs": [
+                {
+                    "routerId": "192.168.5.1", 
+                    "prefix": 3232236800, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.5.1", 
+                    "prefix": 3232236544, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.5.2", 
+                    "prefix": 3232238848, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.5.2", 
+                    "prefix": 3232236800, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.6.2", 
+                    "prefix": 3232237056, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.7.2", 
+                    "prefix": 3232255744, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.7.2", 
+                    "prefix": 3232242432, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.7.2", 
+                    "prefix": 3232239872, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.7.2", 
+                    "prefix": 3232238592, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.7.2", 
+                    "prefix": 3232237312, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.11.1", 
+                    "prefix": 3232238336, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.12.2", 
+                    "prefix": 3232238592, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.12.2", 
+                    "prefix": 3232238336, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.14.1", 
+                    "prefix": 3232239104, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.14.1", 
+                    "prefix": 3232238848, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.14.2", 
+                    "prefix": 3232239104, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.29.1", 
+                    "prefix": 3232242944, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.29.1", 
+                    "prefix": 3232242432, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.29.1", 
+                    "prefix": 3232237056, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.29.1", 
+                    "prefix": 3232236288, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.29.1", 
+                    "prefix": 3232236032, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.39.1", 
+                    "prefix": 3232245504, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.39.1", 
+                    "prefix": 3232238848, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.39.1", 
+                    "prefix": 3232237312, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.39.1", 
+                    "prefix": 3232236544, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.39.1", 
+                    "prefix": 3232236288, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.79.2", 
+                    "prefix": 3232255744, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.79.2", 
+                    "prefix": 3232245504, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.79.2", 
+                    "prefix": 3232242944, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.79.2", 
+                    "prefix": 3232237824, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.99.99", 
+                    "prefix": 3232260963, 
+                    "mask": "255.255.255.255"
+                }, 
+                {
+                    "routerId": "192.168.99.99", 
+                    "prefix": 3232239872, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.99.99", 
+                    "prefix": 3232238848, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.99.99", 
+                    "prefix": 3232237824, 
+                    "mask": "255.255.255.0"
+                }, 
+                {
+                    "routerId": "192.168.99.99", 
+                    "prefix": 3232236032, 
+                    "mask": "255.255.255.0"
+                }
+            ], 
+            "nodes": [
+                {
+                    "routerId": "192.168.99.99", 
+                    "neighbors": [
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.5.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.5.1", 
+                            "id": 3410
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.39.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.4.2", 
+                            "id": 3412
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.14.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.13.1", 
+                            "id": 3414
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.5.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.5.2", 
+                            "id": 3416
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.29.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.6.2", 
+                            "id": 3418
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.79.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.79.1", 
+                            "id": 3420
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.29.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.27.2", 
+                            "id": 3422
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.99.99", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.17.2", 
+                            "id": 3424
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.12.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.12.1", 
+                            "id": 3426
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 10, 
+                            "nRouterId": "192.168.39.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.7.2", 
+                            "id": 3428
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.12.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.11.1", 
+                            "id": 3430
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.7.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.12.2", 
+                            "id": 3432
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.11.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.11.2", 
+                            "id": 3434
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.14.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.14.1", 
+                            "id": 3436
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.5.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.13.2", 
+                            "id": 3438
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.14.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.14.2", 
+                            "id": 3440
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.79.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.29.1", 
+                            "id": 3442
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.7.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.27.1", 
+                            "id": 3444
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.6.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.6.1", 
+                            "id": 3446
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.39.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.3.1", 
+                            "id": 3448
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.99.99", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.2.2", 
+                            "id": 3450
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.79.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.39.1", 
+                            "id": 3452
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.99.99", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.13.2", 
+                            "id": 3454
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.7.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.7.1", 
+                            "id": 3456
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.5.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.4.1", 
+                            "id": 3458
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.29.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.3.2", 
+                            "id": 3460
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.7.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.79.2", 
+                            "id": 3462
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.39.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.39.2", 
+                            "id": 3464
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.29.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.29.2", 
+                            "id": 3466
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.99.99", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.9.2", 
+                            "id": 3468
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.7.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.17.1", 
+                            "id": 3471
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.39.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.13.1", 
+                            "id": 3473
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.79.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.9.1", 
+                            "id": 3475
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 64, 
+                            "nRouterId": "192.168.29.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.2.1", 
+                            "id": 3477
+                        }
+                    ]
+                }
+            ], 
+            "InterLink": [
+                {
+                    "linkId": 3233, 
+                    "metric": 20, 
+                    "nRouterId": "192.168.100.2", 
+                    "mask": "255.255.255.0", 
+                    "routerId": "192.168.39.1", 
+                    "interfaceIP": "192.168.39.1", 
+                    "nAsNumber": 2
+                }, 
+                {
+                    "linkId": 3485, 
+                    "metric": 10, 
+                    "nRouterId": "192.168.100.1", 
+                    "mask": "255.255.255.0", 
+                    "routerId": "192.168.99.99", 
+                    "interfaceIP": "192.168.1.1", 
+                    "nAsNumber": 2
+                }
+            ]
+        }, 
+        "asNumber": 1, 
+        "OuterInfo": {
+            "BGP": [], 
+            "ExternalLsa": [
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.99.99", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "192.168.1.110", 
+                    "linkStateId": "192.168.100.0"
+                }
+            ]
+        }
+    }, 
+    {
+        "Topo": {
+            "stubs": [
+                {
+                    "routerId": "192.168.100.2", 
+                    "prefix": 3232263680, 
+                    "mask": "255.255.255.0"
+                }
+            ], 
+            "nodes": [
+                {
+                    "routerId": "192.168.100.1", 
+                    "neighbors": [
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 10, 
+                            "nRouterId": "192.168.100.1", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.100.2", 
+                            "id": 2871
+                        }, 
+                        {
+                            "area": "0.0.0.0", 
+                            "metric": 1, 
+                            "nRouterId": "192.168.100.2", 
+                            "mask": "255.255.255.0", 
+                            "interfaceIP": "192.168.100.1", 
+                            "id": 2872
+                        }
+                    ]
+                }
+            ], 
+            "InterLink": [
+                {
+                    "linkId": 2797, 
+                    "metric": 10, 
+                    "nRouterId": "192.168.17.1", 
+                    "mask": "255.255.255.0", 
+                    "routerId": "192.168.100.1", 
+                    "interfaceIP": "192.168.1.110", 
+                    "nAsNumber": 1
+                }, 
+                {
+                    "linkId": 2812, 
+                    "metric": 20, 
+                    "nRouterId": "192.168.39.1", 
+                    "mask": "255.255.255.0", 
+                    "routerId": "192.168.100.2", 
+                    "interfaceIP": "192.168.100.2", 
+                    "nAsNumber": 1
+                }, 
+                {
+                    "linkId": 2868, 
+                    "metric": 10, 
+                    "nRouterId": "192.168.17.1", 
+                    "mask": "255.255.255.0", 
+                    "routerId": "192.168.100.1", 
+                    "interfaceIP": "192.168.1.110", 
+                    "nAsNumber": 1
+                }, 
+                {
+                    "linkId": 2873, 
+                    "metric": 30, 
+                    "nRouterId": "192.168.79.2", 
+                    "mask": "255.255.255.0", 
+                    "routerId": "192.168.100.2", 
+                    "interfaceIP": "192.168.100.2", 
+                    "nAsNumber": 1
+                }
+            ]
+        }, 
+        "asNumber": 2, 
+        "OuterInfo": {
+            "BGP": [], 
+            "ExternalLsa": [
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.2.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.3.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.4.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.5.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.6.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.7.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.9.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.11.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.12.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.13.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.14.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.17.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.27.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.29.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.39.0"
+                }, 
+                {
+                    "externalType": 2, 
+                    "metric": 0, 
+                    "advRouter": "192.168.100.1", 
+                    "networkMask": "255.255.255.0", 
+                    "forwardingAddress": "0.0.0.0", 
+                    "linkStateId": "192.168.79.0"
+                }
+            ]
+        }
+    }
+]

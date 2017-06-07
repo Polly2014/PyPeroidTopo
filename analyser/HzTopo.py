@@ -1,4 +1,8 @@
-#-*-coding:utf-8-*-
+# -*- coding:utf-8 -*-
+# @Date    : 2017-06-08 00:12:47
+# @Author  : Polly
+# @Email   : wangbaoli@ict.ac.cn
+# @Version : 1.0.0
 
 from common.AsTopo import AsTopo
 try:
@@ -11,7 +15,7 @@ def prn_obj(obj):
     print '\n'.join(['%s:%s' % item for item in obj.__dict__.items()])
 
 def getHzTopoFromFile(topoFilePathName):
-	hzTopo = []
+	hzTopo = {}
 
 	with open(topoFilePathName, 'rb') as f:
 		topoFile = pickle.load(f)
@@ -19,7 +23,7 @@ def getHzTopoFromFile(topoFilePathName):
 	for t in topoFile:
 		asTopo = AsTopo()
 		asTopo.setAsInfo(t)
-		hzTopo.append(asTopo)
+		hzTopo[asTopo.getAsNumber()] = asTopo
 
 	return hzTopo
 	
@@ -43,6 +47,4 @@ def getIdByIp(ip):
 
 
 hzTopo = getHzTopoFromFile("../topoFile/ospf-201705091617.pkl")
-for asTopo in hzTopo:
-	print dir(asTopo)
-	print "----------------------------------"
+print hzTopo

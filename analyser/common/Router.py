@@ -16,7 +16,7 @@ class Router(object):
 		self.areas = []				# Areas which router belongs to
 		self.neighborIds = []		# Router's neighborIDs
 		self.mapPrefixIp = {}		# Prefix <-> Ip
-		self.mapIterfaceLinkid = {}	# InterfaceNo <-> LinkID
+		self.mapIterfaceLinkid = {}	# InterfaceNo <-> LinkID (Nothing to do)
 		
 	def getRouterId(self):
 		return self.routerId
@@ -37,33 +37,39 @@ class Router(object):
 		self.routerId = routerId
 
 	def addInterfaceIp(self, ip):
-		self.interfaceIps.append(ip)
+		if ip:
+			self.interfaceIps.append(ip)
 
 	def addLink(self, link):
-		self.links.append(link)
-		# TODO
-		self.mapPrefixIp[link.getPrefix()] = link.getSrcIp()
+		if link:
+			self.links.append(link)
+			self.mapPrefixIp[link.getPrefix()] = link.getSrcIp()
 
 	def addNeighborId(self, neighborId):
-		self.neighborIDs.append(neighborId)
+		if neighborId:
+			self.neighborIds.append(neighborId)
 
 	def addArea(self, area):
 		if all([area, area not in self.areas]):
 			self.areas.append(area)
 
-	def addInterfaceLinkid(self, interface, linkid):
-		if all([interface>=0, linkid>=0]):
-			self.mapIterfaceLinkid[interface] = linkid
+	def addInterfaceLinkid(self, interface, linkId):
+		if all([interface>=0, linkId>=0]):
+			self.mapIterfaceLinkid[interface] = linkId
 
 	def getLinkidByInterface(self, interface):
 		return self.mapIterfaceLinkid.get(interface, 0)
 
-	def getPrefixByLinkid(self, linkid):
-		# TODO link.getLinkId()
+	def getPrefixByLinkid(self, linkId):
 		for link in self.links:
-			if link.getLinkId()==linkid:
+			if link.getLinkId()==linkId:
 				return link.getPrefix()
 		return 0
+		'''
+		# Another Pression
+		prefix = [link.getPrefix() for link in self.links if link.getLinkId()==linkId]
+		return prefix[0] if prefix else 0
+		'''
 
 	def getIpByPrefix(self, prefix):
 		return self.mapPrefixIp.get(prefix, 0)

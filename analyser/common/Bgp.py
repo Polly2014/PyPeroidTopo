@@ -19,16 +19,16 @@ class Bgp(object):
 	def __init__(self):
 		self.origin = 0
 		self.weight = 0				# Uses in Cisco
-		self.length = 0				# Count of 1 in mask
+		self.prefixLength = 0		# Count of 1 in mask
 		self.med = 0				# range from 0 to 4,294,967,294
 		self.prefix = 0				#
 		self.nextHop = 0			#
 		self.localPreference = 0	#
 		self.asPath = []
 
-	def setBgpInfo(self, origin, weight, length, metric, prefix, nexthop, \
-			localPreference, asPath):
-		self.origin, self.weight, self.length = origin, weight, length
+	def setBgpInfo(self, origin, weight, prefixLength, metric, prefix, \
+			nexthop, localPreference, asPath):
+		self.origin, self.weight, self.prefixLength = origin, weight, prefixLength
 		self.med, self.prefix, self.nextHop = metric, prefix, nextHop
 		self.localPreference, self.asPath = localPreference, asPath
 
@@ -38,8 +38,8 @@ class Bgp(object):
 	def getWeight(self):
 		return weight
 
-	def getLength(self):
-		return self.length
+	def getPrefixLength(self):
+		return self.prefixLength
 
 	def getMetric(self):
 		return self.med
@@ -62,8 +62,8 @@ class Bgp(object):
 	def setWeight(self, weight):
 		self.weight = weight
 
-	def setLength(self, length):
-		self.length = length
+	def setLength(self, prefixLength):
+		self.prefixLength = prefixLength
 
 	def setMetric(self, med):
 		self.med = med
@@ -81,7 +81,7 @@ class Bgp(object):
 		self.asPath = asPath
 
 	def showDetail(self):
-		print "Origin:{}, Weight:{}, Length:{}, Metric:{}, Prefix:{}, \
+		print "Origin:{}, Weight:{}, PrefixLength:{}, Metric:{}, Prefix:{}, \
 			NextHop:{}, LocalPreference:{}, AsPath:{}".format(self.origin, \
-			self.weight, self.length, self.med, self.prefix, self.nextHop, \
+			self.weight, self.prefixLength, self.med, self.prefix, self.nextHop, \
 			self.localPreference, self.asPath)

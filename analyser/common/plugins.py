@@ -7,11 +7,21 @@
 from IPy import IP
 
 def getPrefixByIpMask(ip, mask):
+	ip = IP(ip) if isinstance(ip, long) else ip
+	mask = IP(mask) if isinstance(mask, long) else mask
 	return IP(ip).make_net(mask).int()
+
+def getPrefixlenByIpMask(ip, mask):
+	if isinstance(mask, int):
+		return mask
+	ip = IP(ip) if isinstance(ip, long) else ip
+	mask = IP(mask) if isinstance(mask, long) else mask
+	return IP(ip).make_net(mask).prefixlen()
 
 def getIdByIp(ip):
 	return IP(ip).int()
 
 def getIpById(id):
 	return IP(id).strNormal()
+
 

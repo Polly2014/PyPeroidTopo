@@ -16,18 +16,20 @@ class AsTopo():
 	def __init__(self):
 		self.periodId = 0				# Topo's Peroid ID *
 		self.asNumber = 0 				# Topo's AS number *
-		self.asbrIds = []				# Topo's ASBRs
+
+		self.asbrIds = []				# Topo's ASBRs *
 		self.linkIds = []				# Links of Topo *
 		self.asbrLinks = []				# Links of Topo's ASBRs *
-		self.routerIds = []				# Topo's Routers
+		self.allRouterIds = []			# Topo's Routers
 
-		self.mapIpRouterid = {}			# Ip <-> RouterID *
-		self.mapRouteridRouter = {}		# RouterID <-> Router *
-		self.mapPrefixRouterid = {}		# Prefix <-> RouterID *
-		self.mapPrefixBgp = {}			# Prefix <-> Bgp *
-		self.mapPrefixExternallas = {}	# Prefix <-> ExternalLsa *
-		self.mapAsbrLid = {}			# Asbr <-> LinkID
-		self.mapAsbrRid = {}			# Asbr <-> RouterID
+		self.mapInterfaceipRouterid = {}# InterfaceIP <-> RouterID [OneRouter] *
+		self.mapRouteridRouter = {}		# RouterID <-> Router [OneRouter] *
+		self.mapPrefixRouterid = {}		# Prefix <-> RouterID [Stub] *
+		self.mapPrefixBgp = {}			# Prefix <-> Bgp [BGP] *
+		self.mapPrefixExternallas = {}	# Prefix <-> ExternalLsa [Lsa] *
+		self.mapAsbripLinkid = {}		# InterfaceIP <-> LinkID [Asbr] 
+		self.mapRouteridAsbr = {}		# RouterID <-> Asbr [Asbr]
+		self.mapNexthopAsbrlink = {}	# NextHop <-> AsbrLink 
 		
 	def __str__(self):
 		return "AS:{}\nLinkIds:{}\nRouterIds:{}".format(self.asNumber, self.linkIds, self.routerIds)
@@ -36,20 +38,129 @@ class AsTopo():
 		return self.periodId
 
 	def getAsNumber(self):
-		return self.asNumber
+		return int(self.asNumber)
 
 	def getAsbrIds(self):
 		return self.asbrIds
 
-	def getRouterByRid(rid):
-		return self.mapRouterRid.get(rid)
+	def getLinkIds(self):
+		return self.linkIds
 
-	def getAsbrByPre(ip, mask):
-		# TODO
-		pass
+	def getRouterIdByInterfaceIp(self, interfaceIp):
+		return self.mapInterfaceipRouterid.get(interfaceIp)
+
+	def getRouterByRouterId(self, routerId):
+		return self.mapRouteridRouter.get(routerId)
+
+	def getRouterIdByPrefix(self, prefix):
+		return self.mapPrefixRouterid.get(prefix)
+
+	def getBgpByPrefix(self, prefix):
+		return self.mapPrefixBgp.get(prefix)
+
+	def getExternalLsaByPrefix(self, prefix):
+		return self.mapPrefixExternallas.get(prefix)
+
+	def getAsbrLinkByNextHop(self, nextHop):
+		return self.mapNexthopAsbrlink.get(nextHop)
+
+	def getAsbrIdByIpMask(self, ip, mask):
+		prefixLength = plugins.getPrefixlenByIpMask(ip, mask)
+		while prefixLength>0:
+			prefix = plugins.getPrefixByIpMask(ip, prefixLength)
+			bgp = self.getBgpByPrefix(prefix)
+			if all([bgp, bgp.getPrefixLength()==prefixLength]):
+				nextHop = bgp.getNextHop()
+				asbrLink = self.getAsbrLinkByNextHop(nextHop)
+				if all([asbrLink, bgp.getAsPath()]):
+					return [asbrLink.srcId, asbrLink.linkId, \
+						bgp.getAsPath(), asbrLink.dstId]
+			prefixLength -= 1
+		else:
+			return
+
+	def getAsbrIdByInterfaceIp(self, interfaceIp):
+		if interfaceIp<=0:
+			return
+		asbrId = self.mapInterfaceipRouterid.get(interfaceIp)
+		if asbrId:
+			return asbrId
+		prefix = plugins.getPrefixByIpMask(ip, 32)
+		if prefix:
+			return self.getRouterIdByPrefix(prefix)
+
+	def getRouterIdByIpMask(self, ip, mask):
+		prefixLength = plugins.getPrefixlenByIpMask(ip, mask)
+		while prefixLength>0:
+			prefix = plugins.getPrefixByIpMask(ip, prefixLength)
+			routerId = self.getRouterIdByPrefix(prefix)
+			if routerId:
+				return routerId
+
+			prefixLength -= 1
+		else:
+			return
+
+
+		'''
+		prefix = plugins.getPrefixByIpMask(ip, mask)
+
+		nextHop = 0
+		changeCount = 0
+		while changeCount<24:
+			prefix = plugins.getPrefixByIpMask(ip, mask)
+			asbrId = self.mapPrefixBgp.get(prefix)			
+			if asbrId:
+				bgp = Bgp()
+				nextHop = bgp.getNextHop()
+				link = getAsbrLinkByNextHop(nextHop)
+				if link:
+					return [link.srcId, link.dstId, link.dstAs]
+			changeCount += 1
+			mask <<= 1
+		return
+		'''
+
+	def getAsbrLinkByNextHop(nextHop):
+		for link in self.asbrLinks:
+			p1 = plugins.getPrefixByIpMask(link.srcIp, link.mask)
+			p2 = plugins.getPrefixByIpMask(nextHop, link.mask)
+			if p1==p2:
+				return link
+		return 
 
 	def setAsNumber(self, asNumber):
 		self.asNumber = asNumber
+
+	def addLinkId(self, linkId):
+		self.linkIds.append(linkId)
+
+	def addMapInterfaceipRouterid(self, interfaceIp, routerId):
+		self.mapInterfaceipRouterid[interfaceIp] = routerId
+
+	def addMapRouteridRouter(self, routerId, router):
+		self.mapRouteridRouter[routerId] = router
+
+	def addMapPrefixRouterid(self, prefix, routerId):
+		self.mapPrefixRouterid[prefix] = routerId
+
+	def addAsbrLink(self, asbrLink):
+		self.asbrLinks.append(asbrLink)
+
+	def addAsbrId(self, asbrId):
+		self.asbrIds.append(asbrId)
+
+	def addMapPrefixBgp(self, prefix, bgp):
+		self.mapPrefixBgp[prefix] = bgp
+
+	def addMapPrefixExternallas(self, prefix, lsa):
+		self.mapPrefixExternallas[prefix] = lsa
+
+	def addMapAsbripLinkid(self, interfaceIp, linkId):
+		self.mapAsbripLinkid[interfaceIp] = linkId
+
+	def setMapPrefixBgp(self, refix, bgp):
+		self.mapPrefixBgp[prefix] = bgp
 
 	def setTopoNodeInfo(self, nodeInfo):
 		for node in nodeInfo:
@@ -71,14 +182,14 @@ class AsTopo():
 					router.addArea(area)
 					router.addLink(link)
 					self.addLinkId(linkId)
-					self.addMapIpRouterid(srcIp, srcId)
+					self.addMapInterfaceipRouterid(srcIp, srcId)
 			self.addMapRouteridRouter(routerId, router)
 
 	def setTopoStubInfo(self, stubInfo):
 		for stub in stubInfo:
-			routerId = stub.get("routerId")
+			routerId = plugins.getIdByIp(stub.get("routerId"))
 			prefix = stub.get("prefix")
-			mask = stub.get("mask")
+			mask = plugins.getIdByIp(stub.get("mask"))
 			if all([routerId, prefix, mask]):
 				self.addMapPrefixRouterid(prefix, routerId)
 
@@ -96,8 +207,9 @@ class AsTopo():
 				asbrLink = AsbrLink()
 				asbrLink.setLinkInfo(linkId, interfaceNo, metric, \
 					mask, srcId, dstId, srcIp, dstAs)
-				self.addMapIpRouterid(srcIp, srcId)
+				self.addMapInterfaceipRouterid(srcIp, srcId)
 				self.addAsbrLink(asbrLink)
+				#self.addAsbrId(srcId)
 
 	def setTopoInfo(self, topoInfo):
 		# TODO nodes, stubs, asbrs
@@ -160,37 +272,18 @@ class AsTopo():
 		outerInfo = asInfo.get("OuterInfo")
 		self.setOuterInfo(outerInfo)
 
+
+	'''
 	def setMapAsbrLid(self, ip, linkId):
 		if any([ip, linkId]):
 			self.mapAsbrLid[ip] = linkId
-
+	
 	def setLinkIds(self, id):
 		if id:
 			self.linkIds.append(id)
+	'''
 
-	def addLinkId(self, linkId):
-		self.linkIds.append(linkId)
 
-	def addMapIpRouterid(self, ip, routerId):
-		self.mapIpRouterid[ip] = routerId
-
-	def addMapRouteridRouter(self, routerId, router):
-		self.mapRouteridRouter[routerId] = router
-
-	def addMapPrefixRouterid(self, prefix, routerId):
-		self.mapPrefixRouterid[prefix] = plugins.getIdByIp(routerId)
-
-	def addAsbrLink(self, asbrLink):
-		self.asbrLinks.append(asbrLink)
-
-	def addMapPrefixBgp(self, prefix, bgp):
-		self.mapPrefixBgp[prefix] = bgp
-
-	def addMapPrefixExternallas(self, prefix, lsa):
-		self.mapPrefixExternallas[prefix] = lsa
-
-	def setMapPrefixBgp(self, refix, bgp):
-		self.mapPrefixBgp[prefix] = bgp
 	
 	def bgpRouteSelect(self, bgp1, bgp2):
 		# 1. Compare The Weight
@@ -213,5 +306,6 @@ class AsTopo():
 		m1, m2 = bgp1.getMetric(), bgp2.getMetric()
 		if m1!=m2:
 			return bgp1 if m1<m2 else bgp2
-		return m1
+		return bgp1
+
 

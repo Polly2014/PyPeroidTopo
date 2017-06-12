@@ -47,9 +47,9 @@ class NormalLink(object):
 		return self.srcIp
 
 	def getPrefix(self):
-		srcIp = plugins.getIpById(self.srcIp)
-		mask = plugins.getIpById(self.mask)
-		return plugins.getPrefixByIpMask(srcIp, mask)
+		# srcIp = plugins.getIpById(self.srcIp)
+		# mask = plugins.getIpById(self.mask)
+		return plugins.getPrefixByIpMask(self.srcIp, self.mask)
 	
 	def setLinkId(self, linkId):
 		self.linkId = linkId

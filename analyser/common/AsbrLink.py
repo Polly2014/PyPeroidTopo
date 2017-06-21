@@ -21,12 +21,20 @@ class AsbrLink(object):
 		self.srcIp = 0			# Link's Src Route Interface IP
 		self.dstAs = 0			# Link's Dst AS Number
 
+	def __str__(self):
+		srcId, dstId = map(plugins.getIpById, [self.srcId, self.dstId])
+		return "{}->{} [{}]".format(srcId, dstId, self.metric)
+
 	def setLinkInfo(self, linkId, interfaceNo, metric, mask, \
 			srcId, dstId, srcIp, dstAs):
 		self.linkId, self.interfaceNo, self.metric = linkId, interfaceNo, metric
 		self.srcId, self.dstId = srcId, dstId
 		self.srcIp, self.dstAs = srcIp, dstAs
 
+	def getEdge(self):
+		srcId, dstId = map(plugins.getIpById, [self.srcId, self.dstId])
+		return (srcId, dstId, self.metric)
+		
 	def getLinkId(self):
 		return self.linkId
 

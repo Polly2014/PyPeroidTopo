@@ -18,6 +18,11 @@ class Router(object):
 		self.mapPrefixIp = {}		# Prefix <-> Ip
 		self.mapIterfaceLinkid = {}	# InterfaceNo <-> LinkID (Nothing to do)
 		
+	def __str__(self):
+		info = "RouterId:{}\nInterfaceIps:{}\nlinks:{}\nareas:{}".format(self.routerId, self.interfaceIps, self.links, self.areas)
+		info += "neighborIds:{}\nmapPrefixIp:{}\nmapIterfaceLinkid:{}".format(self.neighborIds, self.mapPrefixIp, self.mapIterfaceLinkid)
+		return info
+
 	def getRouterId(self):
 		return self.routerId
 

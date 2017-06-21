@@ -63,16 +63,25 @@ class HzTopoGenerator():
             # Step Two-1: Make Neighbors Object
             tmpSet = ospf_link_set.filter(HzOspfLinkInfo.as_num==as_num, \
                 HzOspfLinkInfo.link_type.in_((1,2))).all()
-            neighbors = []
+            routerNeighbors = {}
             for t in tmpSet:
-                neighbors.append({
+                neighbor = {
                     "id": t.id, "area": t.area_id, "interfaceIP": t.interface_ip, 
-                    "mask": t.mask, "nRouterId": t.n_router_id, "metric": t.metric})
+                    "mask": t.mask, "nRouterId": t.n_router_id, "metric": t.metric}
+                if routerNeighbors.has_key(t.router_id):
+                    routerNeighbors[t.router_id].append(neighbor)
+                else:
+                    routerNeighbors[t.router_id] = []
+                # neighbors.append({
+                #     "id": t.id, "area": t.area_id, "interfaceIP": t.interface_ip, 
+                #     "mask": t.mask, "nRouterId": t.n_router_id, "metric": t.metric})
+            
             # TODO: 双边检测
 
             # Step Two-2: Make Nodes Object
             nodes = []
-            nodes.append({"routerId": t.router_id, "neighbors": neighbors})
+            for routerId, neighbors in routerNeighbors.items():
+                nodes.append({"routerId": routerId, "neighbors": neighbors})
 
             # Step Two-3: Make Stubs Object
             tmpSet = ospf_link_set.filter(HzOspfLinkInfo.as_num==as_num, \
@@ -121,11 +130,13 @@ class HzTopoGenerator():
         with open(self.topoFilePathName, 'wb') as f:
             pickle.dump(self.hzTopo, f)
             #json.dump(self.hzTopo, f, indent=4)
+            #f.write(json.dumps(self.hzTopo))
 
     def getTopoFilePathName(self):
         return self.topoFilePathName
 
-t = HzTopoGenerator("201705091617")
+t = HzTopoGenerator("201706201617")
 t.connectDB(db_config.DB_CONFIG)
 t.getHzTopo()
+print t.hzTopo
 t.writeTopoToDisk()

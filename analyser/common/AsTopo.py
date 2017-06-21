@@ -9,6 +9,7 @@ from Router import Router
 from AsbrLink import AsbrLink
 from NormalLink import NormalLink
 from ExternalLsa import ExternalLsa
+import networkx as nx
 import plugins
 
 class AsTopo():
@@ -17,19 +18,21 @@ class AsTopo():
 		self.periodId = 0				# Topo's Peroid ID *
 		self.asNumber = 0 				# Topo's AS number *
 
-		self.asbrIds = []				# Topo's ASBRs *
+		self.normalLinks = []			# Topo's normal links
 		self.linkIds = []				# Links of Topo *
+		self.asbrIds = []				# Topo's ASBRs *
 		self.asbrLinks = []				# Links of Topo's ASBRs *
 		self.allRouterIds = []			# Topo's Routers
 
+		
 		self.mapInterfaceipRouterid = {}# InterfaceIP <-> RouterID [OneRouter] *
 		self.mapRouteridRouter = {}		# RouterID <-> Router [OneRouter] *
+		self.mapRouteridAsbr = {}		# RouterID <-> Asbr [Asbr]
 		self.mapPrefixRouterid = {}		# Prefix <-> RouterID [Stub] *
 		self.mapPrefixBgp = {}			# Prefix <-> Bgp [BGP] *
 		self.mapPrefixExternallas = {}	# Prefix <-> ExternalLsa [Lsa] *
 		self.mapAsbripLinkid = {}		# InterfaceIP <-> LinkID [Asbr] 
-		self.mapRouteridAsbr = {}		# RouterID <-> Asbr [Asbr]
-		self.mapNexthopAsbrlink = {}	# NextHop <-> AsbrLink 
+		self.mapNexthopAsbrlink = {}	# NextHop <-> AsbrLink *
 		
 	def __str__(self):
 		return "AS:{}\nLinkIds:{}\nRouterIds:{}".format(self.asNumber, self.linkIds, self.routerIds)
@@ -64,6 +67,7 @@ class AsTopo():
 	def getAsbrLinkByNextHop(self, nextHop):
 		return self.mapNexthopAsbrlink.get(nextHop)
 
+	# BGP
 	def getAsbrIdByIpMask(self, ip, mask):
 		prefixLength = plugins.getPrefixlenByIpMask(ip, mask)
 		while prefixLength>0:
@@ -79,6 +83,7 @@ class AsTopo():
 		else:
 			return
 
+	# InterfaceIp + Stub
 	def getAsbrIdByInterfaceIp(self, interfaceIp):
 		if interfaceIp<=0:
 			return
@@ -89,6 +94,7 @@ class AsTopo():
 		if prefix:
 			return self.getRouterIdByPrefix(prefix)
 
+	# ExternalLsa
 	def getRouterIdByIpMask(self, ip, mask):
 		prefixLength = plugins.getPrefixlenByIpMask(ip, mask)
 		while prefixLength>0:
@@ -96,10 +102,24 @@ class AsTopo():
 			routerId = self.getRouterIdByPrefix(prefix)
 			if routerId:
 				return routerId
-
+			externalLsa = self.mapPrefixExternallas.get(prefix)
+			if externalLsa and plugins.getIdByIp(externalLsa.networkMask)==plugins.getIdByIp(mask):
+				advRouter = externalLsa.getAdvRouter()
+				routerId = plugins.getIdByIp(advRouter)
+				return routerId
 			prefixLength -= 1
 		else:
 			return
+
+	def getRouterIdFromStub(self, ip, mask):
+		prefix = plugins.getPrefixByIpMask(ip, mask)
+		routerId = self.mapPrefixRouterid.get(prefix)
+		return routerId if routerId else 0
+
+	def getRouterIdFromExternalLsa(self, ip, mask):
+		prefix = plugins.getPrefixByIpMask(ip, mask)
+		lsa = self.mapPrefixExternallas.get(prefix)
+		return lsa.getAdvRouter() if lsa else 0
 
 
 		'''
@@ -129,20 +149,33 @@ class AsTopo():
 				return link
 		return 
 
+	def getLinkIdByInterfaceIp(self, interfaceIp):
+		return self.mapAsbripLinkid.get(interfaceIp)
+
 	def setAsNumber(self, asNumber):
 		self.asNumber = asNumber
 
 	def addLinkId(self, linkId):
 		self.linkIds.append(linkId)
 
+	def addRouterId(self, routerId):
+		if routerId not in self.allRouterIds:
+			self.allRouterIds.append(routerId)
+
+
 	def addMapInterfaceipRouterid(self, interfaceIp, routerId):
 		self.mapInterfaceipRouterid[interfaceIp] = routerId
+
+	def addMapRouteridAsbr(routerId, asbr):
+		if routerId and asbr:
+			self.mapRouteridAsbr[routerId] = asbr
 
 	def addMapRouteridRouter(self, routerId, router):
 		self.mapRouteridRouter[routerId] = router
 
 	def addMapPrefixRouterid(self, prefix, routerId):
-		self.mapPrefixRouterid[prefix] = routerId
+		if prefix and routerId:
+			self.mapPrefixRouterid[prefix] = routerId
 
 	def addAsbrLink(self, asbrLink):
 		self.asbrLinks.append(asbrLink)
@@ -181,8 +214,10 @@ class AsTopo():
 					link.setLinkInfo(linkId, metric, area, srcId, dstId, srcIp, mask)
 					router.addArea(area)
 					router.addLink(link)
+					self.normalLinks.append(link)
 					self.addLinkId(linkId)
 					self.addMapInterfaceipRouterid(srcIp, srcId)
+			self.addRouterId(routerId)
 			self.addMapRouteridRouter(routerId, router)
 
 	def setTopoStubInfo(self, stubInfo):
@@ -308,4 +343,32 @@ class AsTopo():
 			return bgp1 if m1<m2 else bgp2
 		return bgp1
 
+	def getShortestPaths(self, srcId, dstId):
+		g = nx.DiGraph(asNumber = self.asNumber)
+		edges = [link.getEdge() for link in self.normalLinks]
+		g.add_weighted_edges_from(edges)
+		s = plugins.getIpById(srcId)
+		t = plugins.getIpById(dstId)
+		paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
+		return list(paths)
 
+	def getRouterIdByNetSegment(self, netSegment):
+		ns = netSegment.int()
+		if netSegment.prefixlen()==32:
+			self.mapInterfaceipRouterid.get(ns)
+		else:
+			self.mapPrefixRouterid.get(ns)
+		'''
+		if netSegment.prefixlen()==32:
+			for asNumber,asTopo in self.hzTopo.items():
+				if routerId in asTopo.allRouterIds:
+					return asNumber
+			else:
+				return -1
+		else:
+			for asNumber,asTopo in self.hzTopo.items():
+				if asTopo.mapPrefixRouterid.has_key(routerId):
+					return asNumber
+			else:
+				return -1
+		'''

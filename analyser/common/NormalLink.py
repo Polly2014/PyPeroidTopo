@@ -20,10 +20,18 @@ class NormalLink(object):
 		self.dstId = 0	# Link's Dst Route ID
 		self.srcIp = 0	# Link's Src Route Interface IP
 
+	def __str__(self):
+		srcId, dstId = map(plugins.getIpById, [self.srcId, self.dstId])
+		return "{}->{} [{}]".format(srcId, dstId, self.metric)
+
 	def setLinkInfo(self, linkId, metric, area, srcId, dstId, srcIp, mask):
 		self.linkId, self.metric, self.area = linkId, metric, area
 		self.srcId, self.dstId, self.srcIp = srcId, dstId, srcIp
 		self.mask = mask
+
+	def getEdge(self):
+		srcId, dstId = map(plugins.getIpById, [self.srcId, self.dstId])
+		return (srcId, dstId, self.metric)
 
 	def getLinkId(self):
 		return self.linkId

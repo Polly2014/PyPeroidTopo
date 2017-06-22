@@ -135,7 +135,7 @@ class HzTopoGenerator():
     def getTopoFilePathName(self):
         return self.topoFilePathName
 
-t = HzTopoGenerator("201706201617")
+t = HzTopoGenerator("201706201637")
 t.connectDB(db_config.DB_CONFIG)
 t.getHzTopo()
 print t.hzTopo

@@ -22,7 +22,7 @@ class routerAnalyser():
 		self.topoFilePath = "../topoFile/"
 		self.isCorrect = True
 		self.hzTopo = {}		# {AsNumber:AsTopo, ...}
-		self.result = {}
+		self.result = []
 		pass
 
 	def getHzTopoFromFile(self, topoFilePathName):
@@ -35,6 +35,7 @@ class routerAnalyser():
 		return True if self.hzTopo else False
 
 	def getOverallRoute(self, topoFileName, srcIp, dstIp, srcMask, dstMask, srcAs, dstAs):
+
 		if all([topoFileName, srcIp, dstIp, srcMask<=0, dstMask<=0]):
 			print "Params invalid!"
 			return
@@ -43,13 +44,16 @@ class routerAnalyser():
 		if not ok:
 			return
 
+		# Step 1: (ip, mask) => netSegment
 		srcSeg = plugins.getNetSegmentByIpMask(srcIp, srcMask)
 		dstSeg = plugins.getNetSegmentByIpMask(dstIp, dstMask)
 
 		# srcRouter = 
 		# dstRouter = 
 
-		srcIp, dstIp = map(plugins.getIdByIp, [srcIp, dstIp])
+
+		# Step 2: netSegment => asNumber
+		#srcIp, dstIp = map(plugins.getIdByIp, [srcIp, dstIp])
 		srcAs, dstAs = map(self.getAsNumberByNetSegment, [srcSeg, dstSeg])
 		if all([srcAs>-1, dstAs>-1]):
 			print "srcAs:{}, dstAs:{}".format(srcAs, dstAs)
@@ -57,41 +61,57 @@ class routerAnalyser():
 
 		curAs = srcAs
 		if curAs==dstAs:
-			self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
+			path = self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
+			self.result.append(path)
 
 		while curAs!=dstAs:
 			if curAs==srcAs:
-				getAsRoute(curAs, "OUTBOUND", srcIp, srcMask, dstIp, dstMask, 0)
+				self.getAsRoute(curAs, "OUTBOUND", srcIp, srcMask, dstIp, dstMask, 0)
 				pass
 			elif curAs==dstAs:
-				getAsRoute(curAs, "INBOUND", srcIp, srcMask, dstIp, dstMask, 1)
+				self.getAsRoute(curAs, "INBOUND", srcIp, srcMask, dstIp, dstMask, 1)
 				pass
 			else:
-				getAsRoute(curAs, "TRANSIT", srcIp, srcMask, dstIp, dstMask, 1)
+				self.getAsRoute(curAs, "TRANSIT", srcIp, srcMask, dstIp, dstMask, 1)
 				pass
+			break
+		print result
 
 
 		# print self.ospfTopo
 		# return
 
+	def getAsPath(self, asNum, pathType, srcSeg, dstSeg):
+		asTopo = self.hzTopo.get(asNum)
+		if pathType=="INTERNAL" or pathType=="INBOUND":
+			paths = asTopo.getShortestPaths(srcSeg, dstSeg)
+
+
+
+
+			
+
 	def getAsRoute(self, asNum, routeType, srcIp, srcMask, dstIp, dstMask, nextHopRouterId):
 		asTopo = self.hzTopo.get(asNum)
 		print [plugins.getIpById(r) for r in asTopo.allRouterIds]
-
+		print "Normal Links:"
 		for link in  asTopo.normalLinks:
 			print link
 		print "_____________________"
+		print "Asbr Links:"
 		for link in asTopo.asbrLinks:
 			print link
 		print "_____________________"
+		print "InterfaceIp <-> Router:"
 		for k,v in asTopo.mapInterfaceipRouterid.items():
 			interfaceIp, routerId = map(plugins.getIpById, [k,v])
 			print "{} <-> {}".format(interfaceIp, routerId)
 		print "_____________________"
-		if routeType=="INTERNAL":
+
+		if routeType=="INTERNAL" or routeType=="INBOUND":
 			paths = asTopo.getShortestPaths(srcIp, dstIp)
-			for p in paths:
-				print p
+			return {asNum:paths}
+
 
 
 
@@ -151,11 +171,9 @@ class routerAnalyser():
 				return -1
 		'''
 
-	def getRouterIdByNetSegment(self, netSegment):
-		pass
 
 
 
 
 r = routerAnalyser()
-r.getOverallRoute("ospf-201706201617.pkl","192.168.2.1","192.168.5.1",24,24,1,1)
+r.getOverallRoute("ospf-201706201637.pkl","192.168.6.2","192.168.14.2",24,24,1,1)

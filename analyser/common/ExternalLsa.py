@@ -4,8 +4,19 @@
 # @Email   : wangbaoli@ict.ac.cn
 # @Version : 1.0.0
 
+import plugins
+
 class ExternalLsa(object):
-	"""docstring for ExternalLsa"""
+	"""
+		example = {
+			"metric": 0,
+			"advRouter": 19239192,	//"192.168.5.2"
+			"linkStateId": 1021030,	//"192.168.13.0"
+			"networkMask": 1101010, //"255.255.255.0"
+			"externalType": 2,
+			"forwardingAddress": 0,	//"0.0.0.0"
+		}
+	"""
 	def __init__(self):
 		self.metric = 0
 		self.advRouter = 0
@@ -35,3 +46,6 @@ class ExternalLsa(object):
 
 	def getForwardingAddress(self):
 		return self.forwardingAddress
+
+	def getPrefixLength(self):
+		return plugins.getPrefixlenByMask(self.networkMask)

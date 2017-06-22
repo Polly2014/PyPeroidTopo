@@ -342,7 +342,7 @@ class AsTopo():
 		if m1!=m2:
 			return bgp1 if m1<m2 else bgp2
 		return bgp1
-
+	'''
 	def getShortestPaths(self, srcId, dstId):
 		g = nx.DiGraph(asNumber = self.asNumber)
 		edges = [link.getEdge() for link in self.normalLinks]
@@ -351,7 +351,17 @@ class AsTopo():
 		t = plugins.getIpById(dstId)
 		paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
 		return list(paths)
+	'''
+	def getShortestPaths(self, srcSeg, dstSeg):
+		g = nx.DiGraph(asNumber = self.asNumber)
+		edges = [link.getEdge() for link in self.normalLinks]
+		g.add_weighted_edges_from(edges)
+		s = srcSeg.strNormal(0)
+		t = dstSeg.strNormal(0)
+		paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
+		return list(paths)
 
+	# Stub or Router's Interface
 	def getRouterIdByNetSegment(self, netSegment):
 		ns = netSegment.int()
 		if netSegment.prefixlen()==32:
@@ -372,3 +382,17 @@ class AsTopo():
 			else:
 				return -1
 		'''
+
+	# ExternalLsa
+	def getAsbrIdByNetSegment(self, netSegment):
+		prefixLength = netSegment.prefixlen()
+		ns = netSegment.int()
+		while prefixLength>0:
+			prefix = plugins.getPrefixlenByIpMask(ns, prefixLength)
+			externalLsa = self.mapPrefixExternallas.get(prefix)
+			if externalLsa and externalLsa.getPrefixLength()==netSegment.prefixlen():
+				asbrId = externalLsa.getAdvRouter()
+				return asbrId
+			prefixLength -= 1
+		else:
+			return

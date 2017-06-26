@@ -287,9 +287,9 @@ class AsTopo():
 			linkStateId = plugins.getIdByIp(lsa.get("linkStateId"))
 			externalType = lsa.get("externalType")
 			forwardingAddress = plugins.getIdByIp(lsa.get("forwardingAddress"))
-			if all([networkMask, advRouter, linkStateId, externalType, forwardingAddress]):
+			if all([networkMask, advRouter, linkStateId, externalType]):
 				l = ExternalLsa()
-				l.setLsaInfo(metric, networkMask, advRouter, linkStateId, externalType, forwardingAddress)
+				l.setLsaInfo(metric, advRouter, linkStateId, networkMask, externalType, forwardingAddress)
 				self.addMapPrefixExternallas(linkStateId, l)
 
 	def setOuterInfo(self, outerInfo):
@@ -356,18 +356,23 @@ class AsTopo():
 		g = nx.DiGraph(asNumber = self.asNumber)
 		edges = [link.getEdge() for link in self.normalLinks]
 		g.add_weighted_edges_from(edges)
-		s = srcSeg.strNormal(0)
-		t = dstSeg.strNormal(0)
+		# s = self.getRouterIdByNetSegment(srcSeg)
+		# t = self.getRouterIdByNetSegment(dstSeg)
+		# print "[{}]->[{}]".format(srcSeg.strNormal(), dstSeg.strNormal())
+		s, t = map(self.getRouterIdByNetSegment, [srcSeg, dstSeg])
+		print "Source:{}->Target:{}".format(s,t)
 		paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
 		return list(paths)
+		#return list(paths) if paths else None
 
 	# Stub or Router's Interface
 	def getRouterIdByNetSegment(self, netSegment):
 		ns = netSegment.int()
 		if netSegment.prefixlen()==32:
-			self.mapInterfaceipRouterid.get(ns)
+			return plugins.getIpById(ns) if ns in self.allRouterIds \
+				else plugins.getIpById(self.mapInterfaceipRouterid.get(ns))
 		else:
-			self.mapPrefixRouterid.get(ns)
+			return plugins.getIpById(self.mapPrefixRouterid.get(ns))
 		'''
 		if netSegment.prefixlen()==32:
 			for asNumber,asTopo in self.hzTopo.items():
@@ -388,11 +393,11 @@ class AsTopo():
 		prefixLength = netSegment.prefixlen()
 		ns = netSegment.int()
 		while prefixLength>0:
-			prefix = plugins.getPrefixlenByIpMask(ns, prefixLength)
+			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
 			externalLsa = self.mapPrefixExternallas.get(prefix)
-			if externalLsa and externalLsa.getPrefixLength()==netSegment.prefixlen():
+			if externalLsa and externalLsa.getPrefixLength()==prefixLength:
 				asbrId = externalLsa.getAdvRouter()
-				return asbrId
+				return plugins.getNetSegmentByIpMask(asbrId)
 			prefixLength -= 1
 		else:
-			return
+			return "Oh, No"

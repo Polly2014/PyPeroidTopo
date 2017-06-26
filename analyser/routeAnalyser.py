@@ -22,8 +22,7 @@ class routerAnalyser():
 		self.topoFilePath = "../topoFile/"
 		self.isCorrect = True
 		self.hzTopo = {}		# {AsNumber:AsTopo, ...}
-		self.result = []
-		pass
+		self.result = {"code":-1, "message":[]}
 
 	def getHzTopoFromFile(self, topoFilePathName):
 		with open(topoFilePathName, 'rb') as f:
@@ -61,12 +60,15 @@ class routerAnalyser():
 
 		curAs = srcAs
 		if curAs==dstAs:
-			path = self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
-			self.result.append(path)
+			asPath = self.getAsPath(curAs, "INTERNAL", srcSeg, dstSeg)
+			#path = self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
+			self.result.append(asPath)
 
 		while curAs!=dstAs:
 			if curAs==srcAs:
-				self.getAsRoute(curAs, "OUTBOUND", srcIp, srcMask, dstIp, dstMask, 0)
+				print "curAs==srcAS"
+				self.getAsPath(curAs, "OUTBOUND", srcSeg, dstSeg)
+				#self.getAsRoute(curAs, "OUTBOUND", srcIp, srcMask, dstIp, dstMask, 0)
 				pass
 			elif curAs==dstAs:
 				self.getAsRoute(curAs, "INBOUND", srcIp, srcMask, dstIp, dstMask, 1)
@@ -75,7 +77,7 @@ class routerAnalyser():
 				self.getAsRoute(curAs, "TRANSIT", srcIp, srcMask, dstIp, dstMask, 1)
 				pass
 			break
-		print result
+		print "Result:{}".format(self.result)
 
 
 		# print self.ospfTopo
@@ -83,13 +85,21 @@ class routerAnalyser():
 
 	def getAsPath(self, asNum, pathType, srcSeg, dstSeg):
 		asTopo = self.hzTopo.get(asNum)
+
 		if pathType=="INTERNAL" or pathType=="INBOUND":
 			paths = asTopo.getShortestPaths(srcSeg, dstSeg)
+			return {asNum:paths}
+		else:	# OUTBOUND OR TRANSIT
+			asbrSeg = asTopo.getAsbrIdByNetSegment(dstSeg)
+			print asbrSeg
 
 
 
 
-			
+
+
+
+
 
 	def getAsRoute(self, asNum, routeType, srcIp, srcMask, dstIp, dstMask, nextHopRouterId):
 		asTopo = self.hzTopo.get(asNum)
@@ -176,4 +186,4 @@ class routerAnalyser():
 
 
 r = routerAnalyser()
-r.getOverallRoute("ospf-201706201637.pkl","192.168.6.2","192.168.14.2",24,24,1,1)
+r.getOverallRoute("ospf-201706201637.pkl","192.168.2.1","192.168.14.2",32,32,1,1)

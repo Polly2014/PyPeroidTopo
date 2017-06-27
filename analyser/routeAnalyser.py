@@ -47,12 +47,7 @@ class routerAnalyser():
 		srcSeg = plugins.getNetSegmentByIpMask(srcIp, srcMask)
 		dstSeg = plugins.getNetSegmentByIpMask(dstIp, dstMask)
 
-		# srcRouter = 
-		# dstRouter = 
-
-
 		# Step 2: netSegment => asNumber
-		#srcIp, dstIp = map(plugins.getIdByIp, [srcIp, dstIp])
 		srcAs, dstAs = map(self.getAsNumberByNetSegment, [srcSeg, dstSeg])
 		if all([srcAs>-1, dstAs>-1]):
 			print "srcAs:{}, dstAs:{}".format(srcAs, dstAs)

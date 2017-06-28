@@ -7,7 +7,7 @@
 from IPy import IP
 import NormalLink, AsbrLink
 
-def getNetSegmentByIpMask(ip, mask=24):
+def getNetSegmentByIpMask(ip, mask=32):
 	ip = IP(ip) if isinstance(ip, long) else ip
 	mask = IP(mask) if isinstance(mask, long) else mask
 	return IP(ip).make_net(mask)

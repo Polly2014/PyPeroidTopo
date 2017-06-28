@@ -4,6 +4,8 @@
 # @Email   : wangbaoli@ict.ac.cn
 # @Version : 1.0.0
 
+import plugins
+
 class Bgp(object):
 	"""
 		BGP class
@@ -27,16 +29,16 @@ class Bgp(object):
 		self.asPath = []
 
 	def setBgpInfo(self, origin, weight, prefixLength, metric, prefix, \
-			nexthop, localPreference, asPath):
+			nextHop, localPreference, asPath):
 		self.origin, self.weight, self.prefixLength = origin, weight, prefixLength
 		self.med, self.prefix, self.nextHop = metric, prefix, nextHop
 		self.localPreference, self.asPath = localPreference, asPath
 
 	def getOrigin(self):
-		return origin
+		return self.origin
 
 	def getWeight(self):
-		return weight
+		return self.weight
 
 	def getPrefixLength(self):
 		return self.prefixLength
@@ -81,7 +83,11 @@ class Bgp(object):
 		self.asPath = asPath
 
 	def showDetail(self):
-		print "Origin:{}, Weight:{}, PrefixLength:{}, Metric:{}, Prefix:{}, \
+		prefix, nextHop = map(plugins.getIpById, [self.prefix, self.nextHop])
+		return "Origin:{}, Weight:{}, PrefixLength:{}, Metric:{}, Prefix:{}, \
 			NextHop:{}, LocalPreference:{}, AsPath:{}".format(self.origin, \
-			self.weight, self.prefixLength, self.med, self.prefix, self.nextHop, \
+			self.weight, self.prefixLength, self.med, prefix, nextHop, \
 			self.localPreference, self.asPath)
+
+	def getPrefixLength(self):
+		return plugins.getPrefixlenByMask(self.prefix)

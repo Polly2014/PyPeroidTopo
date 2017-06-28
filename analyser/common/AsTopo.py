@@ -192,7 +192,7 @@ class AsTopo():
 	def addMapAsbripLinkid(self, interfaceIp, linkId):
 		self.mapAsbripLinkid[interfaceIp] = linkId
 
-	def setMapPrefixBgp(self, refix, bgp):
+	def setMapPrefixBgp(self, prefix, bgp):
 		self.mapPrefixBgp[prefix] = bgp
 
 	def setTopoNodeInfo(self, nodeInfo):
@@ -269,10 +269,10 @@ class AsTopo():
 			asPath = bgp.get("aspath")
 			asSize = len(asPath)
 			if all([nextHop, prefix, length>=0, weight>=0, origin>=0, \
-				localPreference>=0, metric>=0, asSize]):
+				localPreference>=0, metric>=0, asSize>=0]):
 				b = Bgp()
 				b.setBgpInfo(origin, weight, length, metric, prefix, \
-					nexthop, localPreference, asPath)
+					nextHop, localPreference, asPath)
 				bTmp = self.mapPrefixBgp.get(prefix)
 				if bTmp:
 					self.setMapPrefixBgp(prefix, self.bgpRouteSelect(b, bTmp))
@@ -361,8 +361,12 @@ class AsTopo():
 		# print "[{}]->[{}]".format(srcSeg.strNormal(), dstSeg.strNormal())
 		s, t = map(self.getRouterIdByNetSegment, [srcSeg, dstSeg])
 		print "Source:{}->Target:{}".format(s,t)
-		paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
-		return list(paths)
+		
+		try:
+			paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
+			return list(paths)
+		except Exception, e:
+			return "Path Found Error: {}-{}".format(Exception, e)
 		#return list(paths) if paths else None
 
 	# Stub or Router's Interface
@@ -401,3 +405,18 @@ class AsTopo():
 			prefixLength -= 1
 		else:
 			return "Oh, No"
+
+	# BGP
+	def getNextHopByNetSegment(self, netSegment):
+		prefixLength = netSegment.prefixlen()
+		ns = netSegment.int()
+		while  prefixLength>0:
+			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
+			bgp = self.mapPrefixBgp.get(prefix)
+			if bgp and bgp.prefixLength==prefixLength:
+				nextHop = bgp.getNextHop()
+				return plugins.getNetSegmentByIpMask(nextHop)
+			prefixLength -= 1
+		else:
+			return "Oh! No!"
+

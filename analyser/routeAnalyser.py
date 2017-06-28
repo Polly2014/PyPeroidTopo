@@ -46,6 +46,7 @@ class routerAnalyser():
 		# Step 1: (ip, mask) => netSegment
 		srcSeg = plugins.getNetSegmentByIpMask(srcIp, srcMask)
 		dstSeg = plugins.getNetSegmentByIpMask(dstIp, dstMask)
+		print "srcSeg:{}, dstSeg:{}".format(srcSeg, dstSeg)
 
 		# Step 2: netSegment => asNumber
 		srcAs, dstAs = map(self.getAsNumberByNetSegment, [srcSeg, dstSeg])
@@ -58,21 +59,32 @@ class routerAnalyser():
 			asPath = self.getAsPath(curAs, "INTERNAL", srcSeg, dstSeg)
 			#path = self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
 			self.result.append(asPath)
-
+		no = 0
 		while curAs!=dstAs:
+			print "@@@The {}-times running...".format(no+1)
 			if curAs==srcAs:
 				print "curAs==srcAS"
-				self.getAsPath(curAs, "OUTBOUND", srcSeg, dstSeg)
+				srcSeg = self.getAsPath(curAs, "OUTBOUND", srcSeg, dstSeg)
+				curAs = self.getAsNumberByNetSegment(srcSeg)
+				print "nextAs: {}".format(curAs)
 				#self.getAsRoute(curAs, "OUTBOUND", srcIp, srcMask, dstIp, dstMask, 0)
-				pass
 			elif curAs==dstAs:
-				self.getAsRoute(curAs, "INBOUND", srcIp, srcMask, dstIp, dstMask, 1)
+				print "curAs==dstAs"
+				asPath = self.getAsPath(curAs, "INBOUND", srcSeg, dstSeg)
+				#self.getAsRoute(curAs, "INBOUND", srcIp, srcMask, dstIp, dstMask, 1)
 				pass
 			else:
 				self.getAsRoute(curAs, "TRANSIT", srcIp, srcMask, dstIp, dstMask, 1)
 				pass
-			break
-		print "Result:{}".format(self.result)
+			no += 1
+		else:
+			print "@@@The {}-times running...".format(no+1)
+			print "curAs==dstAS"
+			self.getAsPath(curAs, "INBOUND", srcSeg, dstSeg)
+			#path = self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
+			#print asPath
+			#break
+		#print "Result:{}".format(self.result)
 
 
 		# print self.ospfTopo
@@ -80,13 +92,35 @@ class routerAnalyser():
 
 	def getAsPath(self, asNum, pathType, srcSeg, dstSeg):
 		asTopo = self.hzTopo.get(asNum)
+		print map(plugins.getIpById,asTopo.allRouterIds)
+		print "Normal Links:"
+		for link in  asTopo.normalLinks:
+			print link
+		print "-----------------"
+		print "Asbr Links:"
+		for link in asTopo.asbrLinks:
+			print link
+		print "-----------------"
 
 		if pathType=="INTERNAL" or pathType=="INBOUND":
 			paths = asTopo.getShortestPaths(srcSeg, dstSeg)
+			print paths
 			return {asNum:paths}
 		else:	# OUTBOUND OR TRANSIT
 			asbrSeg = asTopo.getAsbrIdByNetSegment(dstSeg)
-			print asbrSeg
+			print "asbrSeg:{}".format(asbrSeg)
+			paths = asTopo.getShortestPaths(srcSeg, asbrSeg)
+			print paths
+			nextHop = asTopo.getNextHopByNetSegment(dstSeg)
+			print "nextHop:{}".format(nextHop)
+			return nextHop
+			# for k,v in asTopo.mapPrefixBgp.items():
+			# 	ip = plugins.getIpById(k)
+			# 	info = v.showDetail()
+			# 	print "GBP\n{}\n{}".format(ip, info)
+			# 	print "###############"
+			# nextAs = asTopo.
+			# nextSrcSeg = asTopo.
 
 
 
@@ -181,4 +215,4 @@ class routerAnalyser():
 
 
 r = routerAnalyser()
-r.getOverallRoute("ospf-201706201637.pkl","192.168.2.1","192.168.14.2",32,32,1,1)
+r.getOverallRoute("ospf-201706282037.pkl","192.168.2.1","192.168.14.2",32,32,1,1)

@@ -22,7 +22,7 @@ class routerAnalyser():
 		self.topoFilePath = "../topoFile/"
 		self.isCorrect = True
 		self.hzTopo = {}		# {AsNumber:AsTopo, ...}
-		self.result = {"code":-1, "message":[]}
+		self.result = {"code":0, "message":[]}
 
 	def getHzTopoFromFile(self, topoFilePathName):
 		with open(topoFilePathName, 'rb') as f:
@@ -41,11 +41,15 @@ class routerAnalyser():
 		topoFilePathName = self.topoFilePath+topoFileName
 		ok = self.getHzTopoFromFile(topoFilePathName)
 		if not ok:
-			return
+			self.result["message"] = "Read Topo File Failed !"
+			return self.result
 
 		# Step 1: (ip, mask) => netSegment
 		srcSeg = plugins.getNetSegmentByIpMask(srcIp, srcMask)
 		dstSeg = plugins.getNetSegmentByIpMask(dstIp, dstMask)
+		if srcSeg==dstSeg:
+			self.result["message"] = "Source and Target Router are the same one!"
+			return self.result
 		print "srcSeg:{}, dstSeg:{}".format(srcSeg, dstSeg)
 
 		# Step 2: netSegment => asNumber
@@ -56,71 +60,51 @@ class routerAnalyser():
 
 		curAs = srcAs
 		if curAs==dstAs:
-			asPath = self.getAsPath(curAs, "INTERNAL", srcSeg, dstSeg)
-			#path = self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
-			self.result.append(asPath)
-		no = 0
+			print "curAs==dstAs"
+			srcSeg, dstSeg = self.getAsPath(curAs, "INTERNAL", srcSeg, dstSeg)
 		while curAs!=dstAs:
-			print "@@@The {}-times running...".format(no+1)
+			print "curAs!=dstAs"
 			if curAs==srcAs:
 				print "curAs==srcAS"
-				srcSeg = self.getAsPath(curAs, "OUTBOUND", srcSeg, dstSeg)
+				srcSeg, dstSeg = self.getAsPath(curAs, "OUTBOUND", srcSeg, dstSeg)
 				curAs = self.getAsNumberByNetSegment(srcSeg)
 				print "nextAs: {}".format(curAs)
-				#self.getAsRoute(curAs, "OUTBOUND", srcIp, srcMask, dstIp, dstMask, 0)
-			elif curAs==dstAs:
-				print "curAs==dstAs"
-				asPath = self.getAsPath(curAs, "INBOUND", srcSeg, dstSeg)
-				#self.getAsRoute(curAs, "INBOUND", srcIp, srcMask, dstIp, dstMask, 1)
-				pass
 			else:
-				self.getAsRoute(curAs, "TRANSIT", srcIp, srcMask, dstIp, dstMask, 1)
-				pass
-			no += 1
+				print "curAs!=srcAs && curAs!=dstAs"
+				srcSeg, dstSeg = self.getAsPath(curAs, "TRANSIT", srcSeg, dstSeg)
+				curAs = self.getAsNumberByNetSegment(srcSeg)
+				print "nextAs: {}".format(curAs)
 		else:
-			print "@@@The {}-times running...".format(no+1)
 			print "curAs==dstAS"
-			self.getAsPath(curAs, "INBOUND", srcSeg, dstSeg)
-			#path = self.getAsRoute(curAs, "INTERNAL", srcIp, srcMask, dstIp, dstMask, 0)
-			#print asPath
-			#break
-		#print "Result:{}".format(self.result)
+			srcSeg, dstSeg = self.getAsPath(curAs, "INBOUND", srcSeg, dstSeg)
+		return self.result
 
-
-		# print self.ospfTopo
-		# return
 
 	def getAsPath(self, asNum, pathType, srcSeg, dstSeg):
 		asTopo = self.hzTopo.get(asNum)
-		print map(plugins.getIpById,asTopo.allRouterIds)
-		print "Normal Links:"
-		for link in  asTopo.normalLinks:
-			print link
-		print "-----------------"
-		print "Asbr Links:"
-		for link in asTopo.asbrLinks:
-			print link
-		print "-----------------"
+		#print map(plugins.getIpById,asTopo.allRouterIds)
 
 		if pathType=="INTERNAL" or pathType=="INBOUND":
-			paths = asTopo.getShortestPaths(srcSeg, dstSeg)
-			print paths
-			return {asNum:paths}
+			r = asTopo.getShortestPaths(srcSeg, dstSeg)
+			if r["code"]==1:
+				self.result["code"] = 1
+				self.result["message"].append({asNum:r["message"]})
+			else:
+				self.result["message"] = r["message"]
+			#print "Path: {}".format(self.result)
+			return srcSeg, dstSeg
 		else:	# OUTBOUND OR TRANSIT
 			asbrSeg = asTopo.getAsbrIdByNetSegment(dstSeg)
-			print "asbrSeg:{}".format(asbrSeg)
-			paths = asTopo.getShortestPaths(srcSeg, asbrSeg)
-			print paths
-			nextHop = asTopo.getNextHopByNetSegment(dstSeg)
-			print "nextHop:{}".format(nextHop)
-			return nextHop
-			# for k,v in asTopo.mapPrefixBgp.items():
-			# 	ip = plugins.getIpById(k)
-			# 	info = v.showDetail()
-			# 	print "GBP\n{}\n{}".format(ip, info)
-			# 	print "###############"
-			# nextAs = asTopo.
-			# nextSrcSeg = asTopo.
+			#print "asbrSeg:{}".format(asbrSeg)
+			r = asTopo.getShortestPaths(srcSeg, asbrSeg)
+			if r["code"]==1:
+				self.result["message"].append({asNum:r["message"]})
+			else:
+				self.result["message"] = r["message"]
+			#print "Path: {}".format(self.result)
+			nextSrcSeg = asTopo.getNextHopByNetSegment(dstSeg)
+			#print "nextSrcSeg:{}".format(nextSrcSeg)
+			return nextSrcSeg, dstSeg
 
 
 
@@ -195,24 +179,10 @@ class routerAnalyser():
 				return asNumber
 		else:
 			return -1
-		'''
-		if netSegment.prefixlen()==32:
-			for asNumber,asTopo in self.hzTopo.items():
-				if routerId in asTopo.allRouterIds:
-					return asNumber
-			else:
-				return -1
-		else:
-			for asNumber,asTopo in self.hzTopo.items():
-				if asTopo.mapPrefixRouterid.has_key(routerId):
-					return asNumber
-			else:
-				return -1
-		'''
-
 
 
 
 
 r = routerAnalyser()
-r.getOverallRoute("ospf-201706282037.pkl","192.168.2.1","192.168.14.2",32,32,1,1)
+result = r.getOverallRoute("ospf-201706282039.pkl","192.168.2.1","192.168.14.2",32,32,1,1)
+print result

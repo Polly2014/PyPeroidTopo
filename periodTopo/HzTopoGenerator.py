@@ -59,7 +59,6 @@ class HzTopoGenerator():
         as_num_list = [l.as_num for l in ospf_link_set.group_by(HzOspfLinkInfo.as_num).all()]
 
         for as_num in as_num_list:
-
             # Step Two-1: Make Neighbors Object
             tmpSet = ospf_link_set.filter(HzOspfLinkInfo.as_num==as_num, \
                 HzOspfLinkInfo.link_type.in_((1,2))).all()
@@ -71,7 +70,7 @@ class HzTopoGenerator():
                 if routerNeighbors.has_key(t.router_id):
                     routerNeighbors[t.router_id].append(neighbor)
                 else:
-                    routerNeighbors[t.router_id] = []
+                    routerNeighbors[t.router_id] = [neighbor]
                 # neighbors.append({
                 #     "id": t.id, "area": t.area_id, "interfaceIP": t.interface_ip, 
                 #     "mask": t.mask, "nRouterId": t.n_router_id, "metric": t.metric})
@@ -81,6 +80,7 @@ class HzTopoGenerator():
             # Step Two-2: Make Nodes Object
             nodes = []
             for routerId, neighbors in routerNeighbors.items():
+                #print "routerId:{}\nneighbors:{}".format(routerId, neighbors)
                 nodes.append({"routerId": routerId, "neighbors": neighbors})
 
             # Step Two-3: Make Stubs Object
@@ -135,7 +135,7 @@ class HzTopoGenerator():
     def getTopoFilePathName(self):
         return self.topoFilePathName
 
-t = HzTopoGenerator("201706282037")
+t = HzTopoGenerator("201706282039")
 t.connectDB(db_config.DB_CONFIG)
 t.getHzTopo()
 print t.hzTopo

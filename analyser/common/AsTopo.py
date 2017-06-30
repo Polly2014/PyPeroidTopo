@@ -353,20 +353,20 @@ class AsTopo():
 		return list(paths)
 	'''
 	def getShortestPaths(self, srcSeg, dstSeg):
+		result = {"code":0, "message":""}
 		g = nx.DiGraph(asNumber = self.asNumber)
 		edges = [link.getEdge() for link in self.normalLinks]
 		g.add_weighted_edges_from(edges)
-		# s = self.getRouterIdByNetSegment(srcSeg)
-		# t = self.getRouterIdByNetSegment(dstSeg)
-		# print "[{}]->[{}]".format(srcSeg.strNormal(), dstSeg.strNormal())
 		s, t = map(self.getRouterIdByNetSegment, [srcSeg, dstSeg])
 		print "Source:{}->Target:{}".format(s,t)
 		
 		try:
 			paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
-			return list(paths)
+			result["code"] = 1
+			result["message"] = list(paths)
 		except Exception, e:
-			return "Path Found Error: {}-{}".format(Exception, e)
+			result["message"] = "Path Found Error: {}-{}".format(Exception, e)
+		return result
 		#return list(paths) if paths else None
 
 	# Stub or Router's Interface

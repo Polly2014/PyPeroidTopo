@@ -22,7 +22,7 @@ class HzTopoGenerator():
         self.pid = periodID
         self.session = ""
         self.hzTopo = []
-        self.topoFilePathName = "../topoFile/"
+        self.topoFilePathName = "topoFile/"
 
     def connectDB(self, DB_CONFIG):
         try:
@@ -41,7 +41,7 @@ class HzTopoGenerator():
         except:
             print "DataBase disconnect failed..."
 
-    def getHzTopo(self):
+    def makeHzTopo(self):
         self.topoFilePathName += "ospf-{}.pkl".format(self.pid)
         if os.path.exists(self.topoFilePathName):
             print "OspfFile Already exists!"
@@ -125,6 +125,8 @@ class HzTopoGenerator():
             topo = {"InterLink":interLinks, "stubs":stubs, "nodes":nodes}
             self.hzTopo.append({"asNumber":as_num,"Topo":topo,"OuterInfo":outerInfo})
         self.disconnectDB()
+        self.writeTopoToDisk()
+
 
     def writeTopoToDisk(self):
         with open(self.topoFilePathName, 'wb') as f:
@@ -135,8 +137,11 @@ class HzTopoGenerator():
     def getTopoFilePathName(self):
         return self.topoFilePathName
 
-t = HzTopoGenerator("201706282039")
-t.connectDB(db_config.DB_CONFIG)
-t.getHzTopo()
-print t.hzTopo
-t.writeTopoToDisk()
+    def makeHzTopoFile(self):
+        pass
+
+# t = HzTopoGenerator("201707282039")
+# t.connectDB(db_config.DB_CONFIG)
+# t.getHzTopo()
+# print t.hzTopo
+# t.writeTopoToDisk()

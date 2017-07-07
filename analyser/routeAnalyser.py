@@ -16,10 +16,10 @@ import networkx as nx
 
 routeType = ("INTERNAL", "INBOUND", "OUTBOUND", "TRANSIT")
 
-class routerAnalyser():
+class RouteAnalyser():
 	"""docstring for routerAnalyser"""
 	def __init__(self):
-		self.topoFilePath = "../topoFile/"
+		self.topoFilePath = "topoFile/"
 		self.isCorrect = True
 		self.hzTopo = {}		# {AsNumber:AsTopo, ...}
 		self.result = {"code":0, "message":[]}
@@ -38,7 +38,7 @@ class routerAnalyser():
 		if all([topoFileName, srcIp, dstIp, srcMask<=0, dstMask<=0]):
 			print "Params invalid!"
 			return
-		topoFilePathName = self.topoFilePath+topoFileName
+		topoFilePathName = self.topoFilePath+"ospf-"+topoFileName+".pkl"
 		ok = self.getHzTopoFromFile(topoFilePathName)
 		if not ok:
 			self.result["message"] = "Read Topo File Failed !"
@@ -59,9 +59,9 @@ class routerAnalyser():
 		
 
 		curAs = srcAs
-		if curAs==dstAs:
-			print "curAs==dstAs"
-			srcSeg, dstSeg = self.getAsPath(curAs, "INTERNAL", srcSeg, dstSeg)
+		# if curAs==dstAs:
+		# 	print "curAs==dstAs"
+		# 	srcSeg, dstSeg = self.getAsPath(curAs, "INTERNAL", srcSeg, dstSeg)
 		while curAs!=dstAs:
 			print "curAs!=dstAs"
 			if curAs==srcAs:
@@ -182,7 +182,9 @@ class routerAnalyser():
 
 
 
+def test():
+	r = RouteAnalyser()
+	result = r.getOverallRoute("201706282039","192.168.2.1","192.168.14.2",32,32,1,1)
+	print result
 
-r = routerAnalyser()
-result = r.getOverallRoute("ospf-201706282039.pkl","192.168.2.1","192.168.14.2",32,32,1,1)
-print result
+# test()

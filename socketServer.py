@@ -6,6 +6,12 @@
 
 import threading
 import SocketServer
+from socketConfig import socketConfig
+import json
+from periodTopo.HzTopoGenerator import HzTopoGenerator
+from analyser.RouteAnalyser import RouteAnalyser
+
+sc = socketConfig()
 
 class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
 
@@ -20,16 +26,32 @@ class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
         client_address = self.client_address
         response = "{}:Recieved from{}-{}".format(cur_thread.name, client_address, data)
         print response
-        self.request.sendall(response)
+
+        query = json.loads(data)
+
+        pid = query.get("pid")
+        t = HzTopoGenerator(pid)
+        t.connectDB(sc.getDBConfig())
+        t.makeHzTopo()
+
+        srcIp = query.get("srcIp")
+        dstIp = query.get("dstIp")
+        srcMask = query.get("srcMask")
+        dstMask = query.get("dstMask")
+        srcAs = query.get("srcAs")
+        dstAs = query.get("dstAs")
+        r = RouteAnalyser()
+        result = r.getOverallRoute(pid, srcIp, dstIp, srcMask, dstMask, srcAs, dstAs)
+        print result
+        self.request.sendall(json.dumps(result))
 
 class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
     pass
 
 if __name__ == "__main__":
     # Port 0 means to select an arbitrary unused port
-    HOST, PORT = "localhost", 9999
 
-    server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)
+    server = ThreadedTCPServer(sc.getHostPort(), ThreadedTCPRequestHandler)
 
     # Start a thread with the server -- that thread will then start one
     # more thread for each request

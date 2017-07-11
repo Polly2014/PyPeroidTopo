@@ -1,0 +1,5198 @@
+[{
+	'Topo': {
+		'stubs': [{
+			'routerId': u '192.168.2.1',
+			'prefix': 3232243456 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.1',
+			'prefix': 3232239872 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.1',
+			'prefix': 3232237824 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.1',
+			'prefix': 3232236032 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.2',
+			'prefix': 3232242944 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.2',
+			'prefix': 3232242432 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.2',
+			'prefix': 3232236288 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.2',
+			'prefix': 3232236032 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.5.1',
+			'prefix': 3232236800 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.5.1',
+			'prefix': 3232236544 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.5.2',
+			'prefix': 3232236800 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.6.2',
+			'prefix': 3232237056 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.7.2',
+			'prefix': 3232255744 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.7.2',
+			'prefix': 3232242432 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.7.2',
+			'prefix': 3232239872 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.7.2',
+			'prefix': 3232238592 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.7.2',
+			'prefix': 3232237312 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.10.2',
+			'prefix': 3232238080 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.23.1',
+			'prefix': 3232238592 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.39.1',
+			'prefix': 3232245504 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.39.1',
+			'prefix': 3232237312 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.39.1',
+			'prefix': 3232236544 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.39.1',
+			'prefix': 3232236288 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.79.2',
+			'prefix': 3232255744 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.79.2',
+			'prefix': 3232245504 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.79.2',
+			'prefix': 3232242944 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.79.2',
+			'prefix': 3232238080 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.79.2',
+			'prefix': 3232237824 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.2.2',
+			'prefix': 3232237056 L,
+			'mask': u '255.255.255.0'
+		}],
+		'nodes': [{
+			'routerId': u '192.168.2.1',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.7.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.17.1',
+				'id': 474
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.79.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.9.1',
+				'id': 476
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.2.1',
+				'id': 478
+			}]
+		}, {
+			'routerId': u '192.168.2.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.79.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.29.1',
+				'id': 481
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.7.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.27.1',
+				'id': 483
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.39.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.3.1',
+				'id': 487
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.2.2',
+				'id': 489
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.6.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.6.1',
+				'id': 532
+			}]
+		}, {
+			'routerId': u '192.168.6.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.6.2',
+				'id': 534
+			}]
+		}, {
+			'routerId': u '192.168.5.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.5.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.5.2',
+				'id': 495
+			}]
+		}, {
+			'routerId': u '192.168.5.1',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.5.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.5.1',
+				'id': 491
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.39.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.4.2',
+				'id': 493
+			}]
+		}, {
+			'routerId': u '192.168.23.1',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.7.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.12.2',
+				'id': 511
+			}]
+		}, {
+			'routerId': u '192.168.39.1',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.79.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.39.1',
+				'id': 513
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.7.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.7.1',
+				'id': 515
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.5.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.4.1',
+				'id': 517
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.3.2',
+				'id': 519
+			}]
+		}, {
+			'routerId': u '192.168.79.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.7.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.79.2',
+				'id': 521
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.39.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.39.2',
+				'id': 523
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.29.2',
+				'id': 525
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.10.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.10.1',
+				'id': 527
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.9.2',
+				'id': 529
+			}]
+		}, {
+			'routerId': u '192.168.7.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.79.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.79.1',
+				'id': 499
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.27.2',
+				'id': 501
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.2.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.17.2',
+				'id': 503
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.23.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.12.1',
+				'id': 505
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 10,
+				'nRouterId': u '192.168.39.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.7.2',
+				'id': 507
+			}]
+		}, {
+			'routerId': u '192.168.10.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.79.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.10.2',
+				'id': 509
+			}]
+		}],
+		'InterLink': [{
+			'linkId': 6372,
+			'metric': 50,
+			'nRouterId': u '192.168.41.1',
+			'mask': u '255.255.255.0',
+			'routerId': u '192.168.5.2',
+			'interfaceIP': u '192.168.51.1',
+			'nAsNumber': 2
+		}, {
+			'linkId': 6373,
+			'metric': 20,
+			'nRouterId': u '192.168.41.1',
+			'mask': u '255.255.255.0',
+			'routerId': u '192.168.23.1',
+			'interfaceIP': u '192.168.11.2',
+			'nAsNumber': 2
+		}, {
+			'linkId': 6374,
+			'metric': 40,
+			'nRouterId': u '192.168.13.2',
+			'mask': u '255.255.255.0',
+			'routerId': u '192.168.5.2',
+			'interfaceIP': u '192.168.13.1',
+			'nAsNumber': 2
+		}, {
+			'linkId': 6375,
+			'metric': 30,
+			'nRouterId': u '192.168.13.2',
+			'mask': u '255.255.255.0',
+			'routerId': u '192.168.23.1',
+			'interfaceIP': u '192.168.23.1',
+			'nAsNumber': 2
+		}]
+	},
+	'asNumber': 1,
+	'OuterInfo': {
+		'BGP': [{
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 32
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.51.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 32
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 202,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.51.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 202,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.51.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 202,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 1,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 1,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 202,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 320,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.51.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.51.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.13.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.12.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 200,
+			'weight': 0,
+			'nexthop': u '192.168.5.1',
+			'length': 24
+		}],
+		'ExternalLsa': [{
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.23.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.13.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.51.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.11.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.14.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.23.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.41.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.13.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.14.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.41.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.51.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.11.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.2.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.2.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.1.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.1.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.15.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.16.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.17.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.15.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.16.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.17.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.23.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '10.21.3.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.5.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '10.21.3.0'
+		}]
+	}
+}, {
+	'Topo': {
+		'stubs': [{
+			'routerId': u '192.168.14.2',
+			'prefix': 3232239104 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '192.168.13.2',
+			'prefix': 3232239104 L,
+			'mask': u '255.255.255.0'
+		}],
+		'nodes': [{
+			'routerId': u '192.168.11.1',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 1,
+				'nRouterId': u '192.168.14.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.41.1',
+				'id': 4881
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 1,
+				'nRouterId': u '192.168.13.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.31.1',
+				'id': 4882
+			}]
+		}, {
+			'routerId': u '192.168.13.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.14.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.14.1',
+				'id': 4877
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 1,
+				'nRouterId': u '192.168.11.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.31.2',
+				'id': 4879
+			}]
+		}, {
+			'routerId': u '192.168.14.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '192.168.13.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.14.2',
+				'id': 4875
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 1,
+				'nRouterId': u '192.168.11.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '192.168.41.2',
+				'id': 4880
+			}]
+		}],
+		'InterLink': [{
+			'linkId': 4884,
+			'metric': 30,
+			'nRouterId': u '192.168.23.1',
+			'mask': u '255.255.255.0',
+			'routerId': u '192.168.13.2',
+			'interfaceIP': u '192.168.23.2',
+			'nAsNumber': 1
+		}, {
+			'linkId': 4885,
+			'metric': 40,
+			'nRouterId': u '192.168.5.2',
+			'mask': u '255.255.255.0',
+			'routerId': u '192.168.13.2',
+			'interfaceIP': u '192.168.13.2',
+			'nAsNumber': 1
+		}, {
+			'linkId': 4886,
+			'metric': 60,
+			'nRouterId': u '172.168.16.1',
+			'mask': u '255.255.255.0',
+			'routerId': u '192.168.13.2',
+			'interfaceIP': u '172.168.2.2',
+			'nAsNumber': 3
+		}]
+	},
+	'asNumber': 2,
+	'OuterInfo': {
+		'BGP': [{
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.41.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 65,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.41.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 65,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 256,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 257,
+			'prefix': u '192.168.99.99',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 32
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.41.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 65,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.51.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 74,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.13.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 129,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 138,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.31.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.41.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.11.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 192,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '192.168.23.1',
+			'length': 24
+		}],
+		'ExternalLsa': [{
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.39.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.51.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.51.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.79.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.79.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.1.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.1.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.2.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.2.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.3.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.3.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.4.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.4.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.5.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.5.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.7.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.7.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.9.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.9.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.10.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.10.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.11.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.11.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.12.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.12.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.13.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.13.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.17.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.17.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.23.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.23.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.27.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.27.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.29.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.29.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.39.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.2.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.1.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.15.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.16.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.17.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.11.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.6.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '192.168.13.2',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.6.0'
+		}]
+	}
+}, {
+	'Topo': {
+		'stubs': [{
+			'routerId': u '172.168.15.2',
+			'prefix': 2896695552 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '172.168.15.2',
+			'prefix': 2896695040 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '172.168.16.1',
+			'prefix': 2896695296 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '172.168.16.1',
+			'prefix': 2896695040 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '172.168.17.1',
+			'prefix': 2896695552 L,
+			'mask': u '255.255.255.0'
+		}, {
+			'routerId': u '172.168.17.1',
+			'prefix': 2896695296 L,
+			'mask': u '255.255.255.0'
+		}],
+		'nodes': [{
+			'routerId': u '172.168.17.1',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '172.168.15.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '172.168.17.1',
+				'id': 13653
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '172.168.16.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '172.168.16.2',
+				'id': 13655
+			}]
+		}, {
+			'routerId': u '172.168.15.2',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '172.168.17.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '172.168.17.2',
+				'id': 13645
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '172.168.16.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '172.168.15.2',
+				'id': 13647
+			}]
+		}, {
+			'routerId': u '172.168.16.1',
+			'neighbors': [{
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '172.168.17.1',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '172.168.16.1',
+				'id': 13649
+			}, {
+				'area': u '0.0.0.0',
+				'metric': 64,
+				'nRouterId': u '172.168.15.2',
+				'mask': u '255.255.255.0',
+				'interfaceIP': u '172.168.15.1',
+				'id': 13651
+			}]
+		}],
+		'InterLink': [{
+			'linkId': 13644,
+			'metric': 60,
+			'nRouterId': u '192.168.13.2',
+			'mask': u '255.255.255.0',
+			'routerId': u '172.168.16.1',
+			'interfaceIP': u '172.168.2.1',
+			'nAsNumber': 2
+		}]
+	},
+	'asNumber': 3,
+	'OuterInfo': {
+		'BGP': [{
+			'origin': 0,
+			'med': 0,
+			'prefix': u '172.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.16.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.15.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '172.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.1',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 128,
+			'prefix': u '172.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.15.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.51.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.11.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.79.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.39.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.29.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.27.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.17.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.12.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.10.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.9.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.7.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.5.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.4.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.2.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.1.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.31.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.14.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 3,
+			'prefix': u '10.21.3.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.23.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 0,
+			'med': 0,
+			'prefix': u '192.168.13.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 2,
+			'prefix': u '192.168.41.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}, {
+			'origin': 2,
+			'med': 0,
+			'prefix': u '192.168.6.0',
+			'aspath': '',
+			'localPreference': 100,
+			'weight': 0,
+			'nexthop': u '172.168.2.2',
+			'length': 24
+		}],
+		'ExternalLsa': [{
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '10.21.3.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '172.168.2.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.1.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.2.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.3.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.4.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.5.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.7.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.9.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.10.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.11.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.12.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.13.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.14.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.17.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.23.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.27.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.29.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.31.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.39.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.41.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.51.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.79.0'
+		}, {
+			'externalType': 2,
+			'metric': 0,
+			'advRouter': u '172.168.16.1',
+			'networkMask': u '255.255.255.0',
+			'forwardingAddress': u '0.0.0.0',
+			'linkStateId': u '192.168.6.0'
+		}]
+	}
+}]

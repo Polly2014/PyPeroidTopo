@@ -19,7 +19,8 @@ routeType = ("INTERNAL", "INBOUND", "OUTBOUND", "TRANSIT")
 class RouteAnalyser():
 	"""docstring for routerAnalyser"""
 	def __init__(self):
-		self.topoFilePath = "topoFile/"
+		#self.topoFilePath = "topoFile/"
+		self.topoFilePath = "../topoFile/"
 		self.isCorrect = True
 		self.hzTopo = {}		# {AsNumber:AsTopo, ...}
 		self.result = {"code":0, "message":[]}
@@ -67,6 +68,7 @@ class RouteAnalyser():
 			if curAs==srcAs:
 				print "curAs==srcAS"
 				srcSeg, dstSeg = self.getAsPath(curAs, "OUTBOUND", srcSeg, dstSeg)
+				print "nextSrcSeg:{}, nextDstSeg:{}".format(srcSeg, dstSeg)
 				curAs = self.getAsNumberByNetSegment(srcSeg)
 				print "nextAs: {}".format(curAs)
 			else:
@@ -82,7 +84,25 @@ class RouteAnalyser():
 
 	def getAsPath(self, asNum, pathType, srcSeg, dstSeg):
 		asTopo = self.hzTopo.get(asNum)
-		#print map(plugins.getIpById,asTopo.allRouterIds)
+		print map(plugins.getIpById, asTopo.allRouterIds)
+		print "Normal Links:"
+		for link in  asTopo.normalLinks:
+			print link
+		print "_____________________"
+		print "Asbr Links:"
+		for link in asTopo.asbrLinks:
+			print link
+		print "_____________________"
+		print "InterfaceIp <-> Router:"
+		for k,v in asTopo.mapInterfaceipRouterid.items():
+			interfaceIp, routerId = map(plugins.getIpById, [k,v])
+			print "{} <-> {}".format(interfaceIp, routerId)
+		print "_____________________"
+		print "Prefix <-> Router:"
+		for k,v in asTopo.mapPrefixRouterid.items():
+			prefix, routerId = map(plugins.getIpById, [k,v])
+			print "{} <-> {}".format(prefix, routerId)
+		print "_____________________"
 
 		if pathType=="INTERNAL" or pathType=="INBOUND":
 			r = asTopo.getShortestPaths(srcSeg, dstSeg)
@@ -95,7 +115,7 @@ class RouteAnalyser():
 			return srcSeg, dstSeg
 		else:	# OUTBOUND OR TRANSIT
 			asbrSeg = asTopo.getAsbrIdByNetSegment(dstSeg)
-			#print "asbrSeg:{}".format(asbrSeg)
+			print "asbrSeg:{}".format(asbrSeg)
 			r = asTopo.getShortestPaths(srcSeg, asbrSeg)
 			if r["code"]==1:
 				self.result["message"].append({asNum:r["message"]})
@@ -184,7 +204,7 @@ class RouteAnalyser():
 
 def test():
 	r = RouteAnalyser()
-	result = r.getOverallRoute("201706282039","192.168.2.1","192.168.14.2",32,32,1,1)
+	result = r.getOverallRoute("201706282039","192.168.2.1","192.168.5.2",32,32,1,1)
 	print result
 
-# test()
+test()

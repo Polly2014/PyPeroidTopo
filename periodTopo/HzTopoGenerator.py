@@ -23,6 +23,7 @@ class HzTopoGenerator():
         self.session = ""
         self.hzTopo = []
         self.topoFilePathName = "topoFile/"
+        #self.topoFilePathName = "../topoFile/"
 
     def connectDB(self, DB_CONFIG):
         try:
@@ -52,7 +53,8 @@ class HzTopoGenerator():
         ospf_link_set = self.session.query(HzOspfLinkInfo).filter( \
             HzOspfLinkInfo.create_time<=pTime,HzOspfLinkInfo.end_time>pTime)
         ospf_lsa_set = self.session.query(HzOspfAsexternallsa)
-        bgp_link_set = self.session.query(HzBgpPathInfo).filter( \
+        bgp_link_set = self.session.query(BgpLinkInfo)
+        bgp_path_set = self.session.query(HzBgpPathInfo).filter( \
             HzOspfLinkInfo.create_time<=pTime,HzOspfLinkInfo.end_time>pTime)
         
         # Step One: Get the whole as_num
@@ -103,7 +105,7 @@ class HzTopoGenerator():
                     "metric":t.metric})
 
             # Step Two-5: Make OuterInfo Object
-            tmpSet = bgp_link_set.filter(HzBgpPathInfo.as_num==as_num)
+            tmpSet = bgp_path_set.filter(HzBgpPathInfo.as_num==as_num)
             bgp = []
             for t in tmpSet:
                 aspath = ""
@@ -139,9 +141,10 @@ class HzTopoGenerator():
 
     def makeHzTopoFile(self):
         pass
+def test():
+    t = HzTopoGenerator("201707282039")
+    t.connectDB(db_config.DB_CONFIG)
+    t.makeHzTopo()
+    print t.hzTopo
 
-# t = HzTopoGenerator("201707282039")
-# t.connectDB(db_config.DB_CONFIG)
-# t.getHzTopo()
-# print t.hzTopo
-# t.writeTopoToDisk()
+#test()

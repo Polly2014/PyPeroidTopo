@@ -359,7 +359,10 @@ class AsTopo():
 		g.add_weighted_edges_from(edges)
 		s, t = map(self.getRouterIdByNetSegment, [srcSeg, dstSeg])
 		print "Source:{}->Target:{}".format(s,t)
-		
+		if s==t:
+			result["code"] = 1
+			result["message"] = [s]
+			return result
 		try:
 			paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
 			result["code"] = 1
@@ -414,6 +417,7 @@ class AsTopo():
 			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
 			bgp = self.mapPrefixBgp.get(prefix)
 			if bgp and bgp.prefixLength==prefixLength:
+				print bgp.showDetail()
 				nextHop = bgp.getNextHop()
 				return plugins.getNetSegmentByIpMask(nextHop)
 			prefixLength -= 1

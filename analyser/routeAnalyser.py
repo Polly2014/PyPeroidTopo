@@ -122,10 +122,10 @@ class RouteAnalyser():
 			else:
 				self.result["message"] = r["message"]
 			#print "Path: {}".format(self.result)
-			nextSrcSegs = asTopo.getNextHopsByAsbrSegment(asbrSeg)
-			print "nextSrcSegs: {}".format(nextSrcSegs)
-			nextSrcSeg = asTopo.getNextHopByNetSegment(dstSeg)
-			#print "nextSrcSeg:{}".format(nextSrcSeg)
+			nextHops = asTopo.getNextHopsByAsbrSegment(asbrSeg)
+			print "nextHops: {}".format(nextHops)
+			nextSrcSeg = asTopo.getNextHopByNetSegment(dstSeg, nextHops)
+			print "nextHop:{}".format(nextSrcSeg)
 			return nextSrcSeg, dstSeg
 
 
@@ -206,7 +206,7 @@ class RouteAnalyser():
 
 def test():
 	r = RouteAnalyser()
-	result = r.getOverallRoute("201707282039","192.168.2.1","192.168.14.2",32,32,1,1)
+	result = r.getOverallRoute("201707282039","192.168.2.1","172.168.15.2",32,32,1,1)
 	print result
 
 test()

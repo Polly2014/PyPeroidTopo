@@ -425,7 +425,26 @@ class AsTopo():
 		return nextHopSegs
 
 	# BGP
-	def getNextHopByNetSegment(self, netSegment):
+	def getNextHopByNetSegment(self, netSegment, nextHops):
+		print "dstSegment:{}".format(netSegment.strNormal())
+		prefixLength = netSegment.prefixlen()
+		ns = netSegment.int()
+		while  prefixLength>0:
+			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
+			bgp = self.mapPrefixBgp.get(prefix)
+			print "###prefix:{}, BGP:{}".format(prefixLength, bgp)
+			if bgp and bgp.prefixLength==prefixLength:
+				nextHop = plugins.getNetSegmentByIpMask(bgp.nextHop)
+				if nextHop in nextHops:
+					return nextHop
+			prefixLength -= 1
+		else:
+			return netSegment
+			#return "Oh! No! Couldn't find the nextHop >_<"
+
+	# BGP & Asbr
+	'''
+	def getNextHopBySegments(self, asbrSegment, dstSegment):
 		prefixLength = netSegment.prefixlen()
 		ns = netSegment.int()
 		while  prefixLength>0:
@@ -433,8 +452,10 @@ class AsTopo():
 			bgp = self.mapPrefixBgp.get(prefix)
 			if bgp and bgp.prefixLength==prefixLength:
 				nextHop = bgp.getNextHop()
+				print "nextHop-{}".format(plugins.getIpById(nextHop))
 				return plugins.getNetSegmentByIpMask(nextHop)
 			prefixLength -= 1
 		else:
 			return "Oh! No!"
+	'''
 

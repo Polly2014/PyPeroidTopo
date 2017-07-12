@@ -28,6 +28,11 @@ class Bgp(object):
 		self.localPreference = 0	#
 		self.asPath = []
 
+	def __str__(self):
+		prefixLength = self.prefixLength
+		prefix, nextHop = map(plugins.getIpById, [self.prefix, self.nextHop])
+		return "Go to {}/{}\tNextHop {}".format(prefix, prefixLength, nextHop)
+
 	def setBgpInfo(self, origin, weight, prefixLength, metric, prefix, \
 			nextHop, localPreference, asPath):
 		self.origin, self.weight, self.prefixLength = origin, weight, prefixLength

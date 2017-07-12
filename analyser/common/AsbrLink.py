@@ -13,7 +13,6 @@ class AsbrLink(object):
 	"""
 	def __init__(self):
 		self.linkId = 0 		# Link's ID
-		self.interfaceNo = 0	# Interface Index No.
 		self.metric = 0 		# Link's Metric
 		self.mask = 0			# Link's Src Route Mask
 		self.srcId = 0			# Link's Src Route ID
@@ -25,9 +24,9 @@ class AsbrLink(object):
 		srcId, dstId = map(plugins.getIpById, [self.srcId, self.dstId])
 		return "{}->{} [{}]".format(srcId, dstId, self.metric)
 
-	def setLinkInfo(self, linkId, interfaceNo, metric, mask, \
+	def setLinkInfo(self, linkId, metric, mask, \
 			srcId, dstId, srcIp, dstAs):
-		self.linkId, self.interfaceNo, self.metric = linkId, interfaceNo, metric
+		self.linkId, self.metric, self.mask = linkId, metric, mask
 		self.srcId, self.dstId = srcId, dstId
 		self.srcIp, self.dstAs = srcIp, dstAs
 
@@ -37,9 +36,6 @@ class AsbrLink(object):
 		
 	def getLinkId(self):
 		return self.linkId
-
-	def getInterfaceNo(self):
-		return self.interfaceNo
 
 	def getMetric(self):
 		return self.metric
@@ -64,9 +60,6 @@ class AsbrLink(object):
 	
 	def setLinkId(self, linkId):
 		self.linkId = linkId
-
-	def setInterfaceNo(self, interfaceNo):
-		self.interfaceNo = interfaceNo
 
 	def setMetric(self, metric):
 		self.metric = metric

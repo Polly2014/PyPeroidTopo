@@ -347,7 +347,7 @@
 		'InterLink': [{
 			'linkId': 6372,
 			'metric': 50,
-			'nRouterId': u '192.168.41.1',
+			'nRouterId': u '192.168.11.1',
 			'mask': u '255.255.255.0',
 			'routerId': u '192.168.5.2',
 			'interfaceIP': u '192.168.51.1',
@@ -355,7 +355,7 @@
 		}, {
 			'linkId': 6373,
 			'metric': 20,
-			'nRouterId': u '192.168.41.1',
+			'nRouterId': u '192.168.11.1',
 			'mask': u '255.255.255.0',
 			'routerId': u '192.168.23.1',
 			'interfaceIP': u '192.168.11.2',

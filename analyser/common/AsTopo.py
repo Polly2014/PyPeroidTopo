@@ -186,14 +186,14 @@ class AsTopo():
 	def addMapPrefixBgp(self, prefix, bgp):
 		self.mapPrefixBgp[prefix] = bgp
 
+	def setMapPrefixBgp(self, prefix, bgp):
+		self.mapPrefixBgp[prefix] = bgp
+
 	def addMapPrefixExternallas(self, prefix, lsa):
 		self.mapPrefixExternallas[prefix] = lsa
 
 	def addMapAsbripLinkid(self, interfaceIp, linkId):
 		self.mapAsbripLinkid[interfaceIp] = linkId
-
-	def setMapPrefixBgp(self, prefix, bgp):
-		self.mapPrefixBgp[prefix] = bgp
 
 	def setTopoNodeInfo(self, nodeInfo):
 		for node in nodeInfo:
@@ -209,7 +209,7 @@ class AsTopo():
 				mask = plugins.getIdByIp(neighbor.get("mask"))
 				dstId = plugins.getIdByIp(neighbor.get("nRouterId"))
 				metric = neighbor.get("metric")
-				if all([linkId, area, srcId, dstId, srcIp, mask]):
+				if all([linkId, srcId, dstId, srcIp, mask]):
 					link = NormalLink()
 					link.setLinkInfo(linkId, metric, area, srcId, dstId, srcIp, mask)
 					router.addArea(area)
@@ -219,6 +219,7 @@ class AsTopo():
 					self.addMapInterfaceipRouterid(srcIp, srcId)
 			self.addRouterId(routerId)
 			self.addMapRouteridRouter(routerId, router)
+
 
 	def setTopoStubInfo(self, stubInfo):
 		for stub in stubInfo:
@@ -231,7 +232,6 @@ class AsTopo():
 	def setTopoAsbrInfo(self, asbrInfo):
 		for asbr in asbrInfo:
 			linkId = asbr.get("linkId")
-			interfaceNo = 0
 			metric = asbr.get("metric")
 			mask = plugins.getIdByIp(asbr.get("mask"))
 			srcId = plugins.getIdByIp(asbr.get("routerId"))
@@ -240,8 +240,8 @@ class AsTopo():
 			dstAs = asbr.get("nAsNumber")
 			if all([linkId, srcId, srcIp, mask, dstId, dstAs]):
 				asbrLink = AsbrLink()
-				asbrLink.setLinkInfo(linkId, interfaceNo, metric, \
-					mask, srcId, dstId, srcIp, dstAs)
+				asbrLink.setLinkInfo(linkId, metric, mask, \
+					srcId, dstId, srcIp, dstAs)
 				self.addMapInterfaceipRouterid(srcIp, srcId)
 				self.addAsbrLink(asbrLink)
 				#self.addAsbrId(srcId)
@@ -278,6 +278,11 @@ class AsTopo():
 					self.setMapPrefixBgp(prefix, self.bgpRouteSelect(b, bTmp))
 				else:
 					self.addMapPrefixBgp(prefix, b)
+
+		# for k,v in self.mapPrefixBgp.items():
+		# 	print "***[{}] {}".format(self.asNumber, v)
+		# print map(plugins.getIpById,self.mapPrefixBgp.keys())
+
 
 	def setOuterExternallasInfo(self, lsaInfo):
 		for lsa in lsaInfo:
@@ -396,7 +401,7 @@ class AsTopo():
 		'''
 
 	# ExternalLsa
-	def getAsbrIdByNetSegment(self, netSegment):
+	def getAsbrSegByDstSegment(self, netSegment):
 		prefixLength = netSegment.prefixlen()
 		ns = netSegment.int()
 		while prefixLength>0:
@@ -409,6 +414,16 @@ class AsTopo():
 		else:
 			return "Oh, No"
 
+	# AsbrLink
+	def getNextHopsByAsbrSegment(self, asbrSegment):
+		nextHopSegs = []
+		for asbrLink in self.asbrLinks:
+			netSegment = plugins.getNetSegmentByIpMask(asbrLink.srcId)
+			if netSegment==asbrSegment:
+				nextHopSeg = plugins.getNetSegmentByIpMask(asbrLink.dstId)
+				nextHopSegs.append(nextHopSeg)
+		return nextHopSegs
+
 	# BGP
 	def getNextHopByNetSegment(self, netSegment):
 		prefixLength = netSegment.prefixlen()
@@ -417,7 +432,6 @@ class AsTopo():
 			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
 			bgp = self.mapPrefixBgp.get(prefix)
 			if bgp and bgp.prefixLength==prefixLength:
-				print bgp.showDetail()
 				nextHop = bgp.getNextHop()
 				return plugins.getNetSegmentByIpMask(nextHop)
 			prefixLength -= 1

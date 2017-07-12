@@ -114,7 +114,7 @@ class RouteAnalyser():
 			#print "Path: {}".format(self.result)
 			return srcSeg, dstSeg
 		else:	# OUTBOUND OR TRANSIT
-			asbrSeg = asTopo.getAsbrIdByNetSegment(dstSeg)
+			asbrSeg = asTopo.getAsbrSegByDstSegment(dstSeg)
 			print "asbrSeg:{}".format(asbrSeg)
 			r = asTopo.getShortestPaths(srcSeg, asbrSeg)
 			if r["code"]==1:
@@ -122,6 +122,8 @@ class RouteAnalyser():
 			else:
 				self.result["message"] = r["message"]
 			#print "Path: {}".format(self.result)
+			nextSrcSegs = asTopo.getNextHopsByAsbrSegment(asbrSeg)
+			print "nextSrcSegs: {}".format(nextSrcSegs)
 			nextSrcSeg = asTopo.getNextHopByNetSegment(dstSeg)
 			#print "nextSrcSeg:{}".format(nextSrcSeg)
 			return nextSrcSeg, dstSeg
@@ -204,7 +206,7 @@ class RouteAnalyser():
 
 def test():
 	r = RouteAnalyser()
-	result = r.getOverallRoute("201706282039","192.168.2.1","192.168.5.2",32,32,1,1)
+	result = r.getOverallRoute("201707282039","192.168.2.1","192.168.14.2",32,32,1,1)
 	print result
 
 test()

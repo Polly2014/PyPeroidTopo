@@ -3,7 +3,7 @@
     "protocol": "ospf",
     "asNum": 1,
     "areaId": "49.0001",
-    "isHQ": 0,
+    "isHQ": 1,
     "interval": 1,
     "inAdvance": 8,
     "topN": 20,

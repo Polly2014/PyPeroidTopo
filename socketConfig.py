@@ -42,4 +42,7 @@ class socketConfig(object):
 	def getDBConfig(self):
 		return DB_CONFIG
 
+	def getProtocol(self):
+		return self.config["localSet"]["protocol"]
+
 

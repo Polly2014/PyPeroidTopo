@@ -28,22 +28,52 @@ class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
         print response
 
         query = json.loads(data)
+        protocol = sc.getProtocol()
+
 
         pid = query.get("pid")
+        srcIp, dstIp = query.get("srcIp"), query.get("dstIp")
+        srcMask, dstMask = query.get("srcMask"), query.get("dstMask")
+        srcAs, dstAs = query.get("srcAs"), query.get("dstAs")
+
         t = HzTopoGenerator(pid)
         t.connectDB(sc.getDBConfig())
         t.makeHzTopo()
-
-        srcIp = query.get("srcIp")
-        dstIp = query.get("dstIp")
-        srcMask = query.get("srcMask")
-        dstMask = query.get("dstMask")
-        srcAs = query.get("srcAs")
-        dstAs = query.get("dstAs")
+        
         r = RouteAnalyser()
         result = r.getOverallRoute(pid, srcIp, dstIp, srcMask, dstMask, srcAs, dstAs)
         print result
         self.request.sendall(json.dumps(result))
+
+
+        # if protocol=="ospf":
+        #     print "ospf Processing..."
+        #     self.ospfProcessing(query)
+        # elif protocol=="isis":
+        #     self.isisProcessing(query)
+        # else:
+        #     pass
+
+    def ospfProcessing(self, query):
+        isHQ = sc.judgeHQ
+        pid = query.get("pid")
+        srcIp, dstIp = query.get("srcIp"), query.get("dstIp")
+        srcMask, dstMask = query.get("srcMask"), query.get("dstMask")
+        srcAs, dstAs = query.get("srcAs"), query.get("dstAs")
+        if isHQ:
+            t = HzTopoGenerator(pid)
+            t.connectDB(sc.getDBConfig())
+            t.makeHzTopo()
+            
+            r = RouteAnalyser()
+            result = r.getOverallRoute(pid, srcIp, dstIp, srcMask, dstMask, srcAs, dstAs)
+            print result
+            self.request.sendall(json.dumps(result))
+        else:
+            pass
+
+    def isisProcessing(self):
+        pass
 
 class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
     pass

@@ -33,6 +33,10 @@ class Bgp(object):
 		prefix, nextHop = map(plugins.getIpById, [self.prefix, self.nextHop])
 		return "Go to {}/{}\tNextHop {}".format(prefix, prefixLength, nextHop)
 
+	def __eq__(self, bgp):
+		return all([self.prefix==bgp.prefix, self.prefixLength==bgp.prefixLength, \
+			self.nextHop==bgp.nextHop])
+
 	def setBgpInfo(self, origin, weight, prefixLength, metric, prefix, \
 			nextHop, localPreference, asPath):
 		self.origin, self.weight, self.prefixLength = origin, weight, prefixLength

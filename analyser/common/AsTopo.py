@@ -23,6 +23,7 @@ class AsTopo():
 		self.asbrIds = []				# Topo's ASBRs *
 		self.asbrLinks = []				# Links of Topo's ASBRs *
 		self.allRouterIds = []			# Topo's Routers
+		self.allBgpItems = []
 
 		
 		self.mapInterfaceipRouterid = {}# InterfaceIP <-> RouterID [OneRouter] *
@@ -68,20 +69,20 @@ class AsTopo():
 		return self.mapNexthopAsbrlink.get(nextHop)
 
 	# BGP
-	def getAsbrIdByIpMask(self, ip, mask):
-		prefixLength = plugins.getPrefixlenByIpMask(ip, mask)
-		while prefixLength>0:
-			prefix = plugins.getPrefixByIpMask(ip, prefixLength)
-			bgp = self.getBgpByPrefix(prefix)
-			if all([bgp, bgp.getPrefixLength()==prefixLength]):
-				nextHop = bgp.getNextHop()
-				asbrLink = self.getAsbrLinkByNextHop(nextHop)
-				if all([asbrLink, bgp.getAsPath()]):
-					return [asbrLink.srcId, asbrLink.linkId, \
-						bgp.getAsPath(), asbrLink.dstId]
-			prefixLength -= 1
-		else:
-			return
+	# def getAsbrIdByIpMask(self, ip, mask):
+	# 	prefixLength = plugins.getPrefixlenByIpMask(ip, mask)
+	# 	while prefixLength>0:
+	# 		prefix = plugins.getPrefixByIpMask(ip, prefixLength)
+	# 		bgp = self.getBgpByPrefix(prefix)
+	# 		if all([bgp, bgp.getPrefixLength()==prefixLength]):
+	# 			nextHop = bgp.getNextHop()
+	# 			asbrLink = self.getAsbrLinkByNextHop(nextHop)
+	# 			if all([asbrLink, bgp.getAsPath()]):
+	# 				return [asbrLink.srcId, asbrLink.linkId, \
+	# 					bgp.getAsPath(), asbrLink.dstId]
+	# 		prefixLength -= 1
+	# 	else:
+	# 		return
 
 	# InterfaceIp + Stub
 	def getAsbrIdByInterfaceIp(self, interfaceIp):
@@ -162,6 +163,10 @@ class AsTopo():
 		if routerId not in self.allRouterIds:
 			self.allRouterIds.append(routerId)
 
+	def addBgpItem(self, bgp):
+		if bgp not in self.allBgpItems:
+			self.allBgpItems.append(bgp)
+
 
 	def addMapInterfaceipRouterid(self, interfaceIp, routerId):
 		self.mapInterfaceipRouterid[interfaceIp] = routerId
@@ -182,9 +187,17 @@ class AsTopo():
 
 	def addAsbrId(self, asbrId):
 		self.asbrIds.append(asbrId)
-
+	'''
 	def addMapPrefixBgp(self, prefix, bgp):
 		self.mapPrefixBgp[prefix] = bgp
+	'''
+	def addMapPrefixBgpItem(self, bgp):
+		prefix = bgp.prefix
+		if self.mapPrefixBgp.has_key(prefix):
+			if bgp not in self.mapPrefixBgp[prefix]:
+				self.mapPrefixBgp[prefix].append(bgp)
+		else:
+			self.mapPrefixBgp[prefix] = []
 
 	def setMapPrefixBgp(self, prefix, bgp):
 		self.mapPrefixBgp[prefix] = bgp
@@ -273,11 +286,18 @@ class AsTopo():
 				b = Bgp()
 				b.setBgpInfo(origin, weight, length, metric, prefix, \
 					nextHop, localPreference, asPath)
-				bTmp = self.mapPrefixBgp.get(prefix)
-				if bTmp:
-					self.setMapPrefixBgp(prefix, self.bgpRouteSelect(b, bTmp))
-				else:
-					self.addMapPrefixBgp(prefix, b)
+				self.addMapPrefixBgpItem(b)
+		for k,v in self.mapPrefixBgp.items():
+			for b in v:
+				print b
+			print "--------------------"
+				# bTmp = self.mapPrefixBgp.get(prefix)
+				# if bTmp:
+				# 	#self.addMapPrefixBgp[prefix].append(bTmp)
+				# 	self.setMapPrefixBgp(prefix, self.bgpRouteSelect(b, bTmp))
+				# else:
+				# 	#self.addMapPrefixBgp[prefix] = []
+				# 	self.addMapPrefixBgp(prefix, b)
 
 		# for k,v in self.mapPrefixBgp.items():
 		# 	print "***[{}] {}".format(self.asNumber, v)
@@ -366,7 +386,7 @@ class AsTopo():
 		print "Source:{}->Target:{}".format(s,t)
 		if s==t:
 			result["code"] = 1
-			result["message"] = [s]
+			result["message"] = [[s]]
 			return result
 		try:
 			paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
@@ -375,7 +395,7 @@ class AsTopo():
 		except Exception, e:
 			result["message"] = "Path Found Error: {}-{}".format(Exception, e)
 		return result
-		#return list(paths) if paths else None
+
 
 	# Stub or Router's Interface
 	def getRouterIdByNetSegment(self, netSegment):
@@ -412,7 +432,7 @@ class AsTopo():
 				return plugins.getNetSegmentByIpMask(asbrId)
 			prefixLength -= 1
 		else:
-			return "Oh, No"
+			return "Oh, No, Couldn't find the asbrSegment!"
 
 	# AsbrLink
 	def getNextHopsByAsbrSegment(self, asbrSegment):
@@ -431,31 +451,33 @@ class AsTopo():
 		ns = netSegment.int()
 		while  prefixLength>0:
 			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
-			bgp = self.mapPrefixBgp.get(prefix)
-			print "###prefix:{}, BGP:{}".format(prefixLength, bgp)
-			if bgp and bgp.prefixLength==prefixLength:
+			bgp_list = self.mapPrefixBgp.get(prefix)
+			print "### prefix:{}".format(plugins.getIpById(prefix))
+			if bgp_list:
+				for bgp in bgp_list:
+					print "### {}".format(bgp)
+			# if bgp_list:
+			# 	for bgp in bgp_list:
+			# 		nextHop = plugins.getNetSegmentByIpMask(bgp.nextHop)
+			# 		if nextHop in nextHops:
+			# 			return nextHop
+			if bgp_list:
+				bgp = reduce(self.bgpRouteSelect, bgp_list)
+				curPrefix = plugins.getPrefixByIpMask(bgp.nextHop, prefixLength)
+				if curPrefix==prefix:
+					return netSegment
+				print "@@@@@@@@@@ {}".format(bgp)
 				nextHop = plugins.getNetSegmentByIpMask(bgp.nextHop)
-				if nextHop in nextHops:
-					return nextHop
+				return nextHop
+
+			# print "###prefix:{}, BGP:{}".format(prefixLength, bgp)
+			# if bgp and bgp.prefixLength==prefixLength:
+			# 	nextHop = plugins.getNetSegmentByIpMask(bgp.nextHop)
+			# 	if nextHop in nextHops:
+			# 		return nextHop
 			prefixLength -= 1
 		else:
 			return netSegment
 			#return "Oh! No! Couldn't find the nextHop >_<"
 
-	# BGP & Asbr
-	'''
-	def getNextHopBySegments(self, asbrSegment, dstSegment):
-		prefixLength = netSegment.prefixlen()
-		ns = netSegment.int()
-		while  prefixLength>0:
-			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
-			bgp = self.mapPrefixBgp.get(prefix)
-			if bgp and bgp.prefixLength==prefixLength:
-				nextHop = bgp.getNextHop()
-				print "nextHop-{}".format(plugins.getIpById(nextHop))
-				return plugins.getNetSegmentByIpMask(nextHop)
-			prefixLength -= 1
-		else:
-			return "Oh! No!"
-	'''
 

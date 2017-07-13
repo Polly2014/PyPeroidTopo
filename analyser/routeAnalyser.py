@@ -19,8 +19,8 @@ routeType = ("INTERNAL", "INBOUND", "OUTBOUND", "TRANSIT")
 class RouteAnalyser():
 	"""docstring for routerAnalyser"""
 	def __init__(self):
-		#self.topoFilePath = "topoFile/"
-		self.topoFilePath = "../topoFile/"
+		self.topoFilePath = "topoFile/"
+		#self.topoFilePath = "../topoFile/"
 		self.isCorrect = True
 		self.hzTopo = {}		# {AsNumber:AsTopo, ...}
 		self.result = {"code":0, "message":[]}
@@ -136,26 +136,26 @@ class RouteAnalyser():
 
 
 
-	def getAsRoute(self, asNum, routeType, srcIp, srcMask, dstIp, dstMask, nextHopRouterId):
-		asTopo = self.hzTopo.get(asNum)
-		print [plugins.getIpById(r) for r in asTopo.allRouterIds]
-		print "Normal Links:"
-		for link in  asTopo.normalLinks:
-			print link
-		print "_____________________"
-		print "Asbr Links:"
-		for link in asTopo.asbrLinks:
-			print link
-		print "_____________________"
-		print "InterfaceIp <-> Router:"
-		for k,v in asTopo.mapInterfaceipRouterid.items():
-			interfaceIp, routerId = map(plugins.getIpById, [k,v])
-			print "{} <-> {}".format(interfaceIp, routerId)
-		print "_____________________"
+	# def getAsRoute(self, asNum, routeType, srcIp, srcMask, dstIp, dstMask, nextHopRouterId):
+	# 	asTopo = self.hzTopo.get(asNum)
+	# 	print [plugins.getIpById(r) for r in asTopo.allRouterIds]
+	# 	print "Normal Links:"
+	# 	for link in  asTopo.normalLinks:
+	# 		print link
+	# 	print "_____________________"
+	# 	print "Asbr Links:"
+	# 	for link in asTopo.asbrLinks:
+	# 		print link
+	# 	print "_____________________"
+	# 	print "InterfaceIp <-> Router:"
+	# 	for k,v in asTopo.mapInterfaceipRouterid.items():
+	# 		interfaceIp, routerId = map(plugins.getIpById, [k,v])
+	# 		print "{} <-> {}".format(interfaceIp, routerId)
+	# 	print "_____________________"
 
-		if routeType=="INTERNAL" or routeType=="INBOUND":
-			paths = asTopo.getShortestPaths(srcIp, dstIp)
-			return {asNum:paths}
+	# 	if routeType=="INTERNAL" or routeType=="INBOUND":
+	# 		paths = asTopo.getShortestPaths(srcIp, dstIp)
+	# 		return {asNum:paths}
 
 
 
@@ -197,16 +197,18 @@ class RouteAnalyser():
 	def getAsNumberByNetSegment(self, netSegment):
 		ns = netSegment.int()
 		for asNumber,asTopo in self.hzTopo.items():
-			if (ns in asTopo.allRouterIds) or asTopo.mapPrefixRouterid.has_key(ns):
+			if (ns in asTopo.allRouterIds) or asTopo.mapPrefixRouterid.has_key(ns) \
+				or asTopo.mapInterfaceipRouterid.has_key(ns):
 				return asNumber
 		else:
+			print "NetSengment-{} Couldn't be founded!".format(netSegment)
 			return -1
 
 
 
 def test():
 	r = RouteAnalyser()
-	result = r.getOverallRoute("201707282039","192.168.2.1","172.168.15.2",32,32,1,1)
+	result = r.getOverallRoute("201707282039","192.168.10.2","172.168.16.1",32,32,1,1)
 	print result
 
-test()
+# test()

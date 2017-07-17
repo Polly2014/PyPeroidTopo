@@ -101,4 +101,4 @@ def test():
 	t.makeIsIsTopo("201707282039")
 	print t.getShortestPaths("192.168.1.0", "192.168.5.0")
 
-test()
+# test()

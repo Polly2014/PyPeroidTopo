@@ -1,6 +1,6 @@
 {
   "localSet": {
-    "protocol": "ospf",
+    "protocol": "isis",
     "asNum": 1,
     "areaId": "49.0001",
     "isHQ": 1,

@@ -85,8 +85,7 @@ class OspfTopoGenerator(object):
 			return result
 		print "Source:{} -> Target:{}".format(s,t)
 		if s==t:
-			result["code"] = 1
-			result["message"] = [[s]]
+			result["message"] = "Start and End Router Cann't be same one..."
 			return result
 		try:
 			paths = nx.all_shortest_paths(G=g, source=s, target=t, weight="weight")
@@ -100,6 +99,6 @@ def test():
 	t = OspfTopoGenerator()
 	t.connectDB(db_config.DB_CONFIG)
 	t.makeOspfTopo("201707282039")
-	print t.getShortestPaths("192.168.1.0", "192.168.5.0")
+	print t.getShortestPaths("192.168.2.2", "192.168.5.2")
 
 test()

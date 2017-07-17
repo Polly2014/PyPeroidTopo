@@ -7,7 +7,7 @@
 import json
 import os
 
-CONFIG = {
+SCOKET_CONFIG = {
 	"fileName": "config.json",
 	"host": "localhost",
 	"port": 9999
@@ -26,15 +26,15 @@ DB_CONFIG = {
 class socketConfig(object):
 	"""docstring for socketConfig"""
 	def __init__(self):
-		if os.path.exists(CONFIG["fileName"]):
-			with open(CONFIG["fileName"], "r+") as f:
+		if os.path.exists(SCOKET_CONFIG["fileName"]):
+			with open(SCOKET_CONFIG["fileName"], "r+") as f:
 				self.config = json.loads(f.read())
-			print "Config File Read Success!"
+			print "Socket Config File Read Success!"
 		else:
-			print "Can't find the configFile!"
+			print "Can't find the socket configFile!"
 
 	def getHostPort(self):
-		return CONFIG["host"], CONFIG["port"]
+		return SCOKET_CONFIG["host"], SCOKET_CONFIG["port"]
 
 	def judgeHQ(self):
 		return self.config["localSet"]["isHQ"]

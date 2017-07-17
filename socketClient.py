@@ -33,6 +33,11 @@ if __name__ == "__main__":
         'srcAs': 1,
         'dstAs': 1
     }
+    # s = {
+    #     'pid': '201707282039',
+    #     'srcIp': '192.168.1.0',
+    #     'dstIp': '192.168.5.0'
+    # }
     client(HOST, PORT, json.dumps(s))
     # for i in range(2):
     #     client(HOST, PORT, "hello world-{}".format(i+1))

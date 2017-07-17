@@ -1,0 +1,12 @@
+Request URL: 
+	interface_common/path_query?query_str={"pid":"201707282039","srcIp":"192.168.1.1","dstIp":"192.168.1.10","srcMask":24,"dstMask":24,"srcAs":1,"dstAs":1,"srcRouterId":"192.168.1.1","dstRouterId":"192.168.1.10"}
+
+
+Response Data:
+{
+	"code": 1, // 1 means success, 0 means error
+	"message":[
+		["192.168.1.1", "192.168.1.2", "192.168.1.10"],
+		["192.168.1.1", "192.168.1.2", "192.168.1.3", "192.168.1.10"]
+	]
+}

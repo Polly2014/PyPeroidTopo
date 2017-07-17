@@ -16,10 +16,10 @@ try:
 except:
     import pickle
 
-class HzTopoGenerator():
+class HzOspfTopoGenerator():
     
-    def __init__(self, periodID=''):
-        self.pid = periodID
+    def __init__(self):
+        self.pid = ""
         self.session = ""
         self.hzTopo = []
         self.topoFilePathName = "topoFile/"
@@ -42,7 +42,8 @@ class HzTopoGenerator():
         except:
             print "DataBase disconnect failed..."
 
-    def makeHzTopo(self):
+    def makeHzTopo(self, periodID=''):
+        self.pid = periodID
         self.topoFilePathName += "ospf-{}.pkl".format(self.pid)
         if os.path.exists(self.topoFilePathName):
             print "OspfFile Already exists!"
@@ -142,7 +143,7 @@ class HzTopoGenerator():
     def makeHzTopoFile(self):
         pass
 def test():
-    t = HzTopoGenerator("201707282039")
+    t = HzOspfTopoGenerator("201707282039")
     t.connectDB(db_config.DB_CONFIG)
     t.makeHzTopo()
     print t.hzTopo

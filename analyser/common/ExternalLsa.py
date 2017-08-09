@@ -28,7 +28,10 @@ class ExternalLsa(object):
 	def __str__(self):
 		advRouter = plugins.getIpById(self.advRouter)
 		prefix = plugins.getNetSegmentByIpMask(self.linkStateId, self.networkMask)
-		return "Go To{}, From{}".format(prefix, advRouter)
+		return "Go To{}, From Asbr{}".format(prefix, advRouter)
+
+	def __eq__(self, lsa):
+		return all([self.metric==las.metric, self.linkStateId==las.linkStateId])
 
 	def setLsaInfo(self, m, a, l, n, e, f):
 		self.metric, self.advRouter, self.linkStateId = m, a, l

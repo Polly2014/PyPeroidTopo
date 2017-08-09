@@ -4,7 +4,7 @@
 # @Email   : wangbaoli@ict.ac.cn
 # @Version : 1.0.0
 
-from enum import Enum
+#from enum import Enum
 try:
     import cPickle as pickle
 except:
@@ -34,7 +34,7 @@ class RouteAnalyser():
 			self.hzTopo[asTopo.getAsNumber()] = asTopo
 		return True if self.hzTopo else False
 
-	def getOverallRoute(self, topoFileName, srcIp, dstIp, srcMask, dstMask, srcAs, dstAs):
+	def getOverallRoute(self, topoFileName, srcIp, dstIp, srcMask, dstMask, srcAs, dstAs, srcRouterId, dstRouterId):
 
 		if all([topoFileName, srcIp, dstIp, srcMask<=0, dstMask<=0]):
 			print "Params invalid!"
@@ -46,8 +46,9 @@ class RouteAnalyser():
 			return self.result
 
 		# Step 1: (ip, mask) => netSegment
-		srcSeg = plugins.getNetSegmentByIpMask(srcIp, srcMask)
-		dstSeg = plugins.getNetSegmentByIpMask(dstIp, dstMask)
+		# srcSeg = plugins.getNetSegmentByIpMask(srcIp, srcMask)
+		# dstSeg = plugins.getNetSegmentByIpMask(dstIp, dstMask)
+		srcSeg, dstSeg = map(plugins.getNetSegmentByIpMask, [srcRouterId, dstRouterId])
 		if srcSeg==dstSeg:
 			self.result["message"] = "Source and Target Router are the same one!"
 			return self.result
@@ -57,6 +58,8 @@ class RouteAnalyser():
 		srcAs, dstAs = map(self.getAsNumberByNetSegment, [srcSeg, dstSeg])
 		if all([srcAs>-1, dstAs>-1]):
 			print "srcAs:{}, dstAs:{}".format(srcAs, dstAs)
+
+		# Step 3: Mask
 		
 
 		curAs = srcAs
@@ -84,25 +87,25 @@ class RouteAnalyser():
 
 	def getAsPath(self, asNum, pathType, srcSeg, dstSeg):
 		asTopo = self.hzTopo.get(asNum)
-		print map(plugins.getIpById, asTopo.allRouterIds)
-		print "Normal Links:"
-		for link in  asTopo.normalLinks:
-			print link
-		print "_____________________"
-		print "Asbr Links:"
-		for link in asTopo.asbrLinks:
-			print link
-		print "_____________________"
-		print "InterfaceIp <-> Router:"
-		for k,v in asTopo.mapInterfaceipRouterid.items():
-			interfaceIp, routerId = map(plugins.getIpById, [k,v])
-			print "{} <-> {}".format(interfaceIp, routerId)
-		print "_____________________"
-		print "Prefix <-> Router:"
-		for k,v in asTopo.mapPrefixRouterid.items():
-			prefix, routerId = map(plugins.getIpById, [k,v])
-			print "{} <-> {}".format(prefix, routerId)
-		print "_____________________"
+		# print map(plugins.getIpById, asTopo.allRouterIds)
+		# print "Normal Links:"
+		# for link in  asTopo.normalLinks:
+		# 	print link
+		# print "_____________________"
+		# print "Asbr Links:"
+		# for link in asTopo.asbrLinks:
+		# 	print link
+		# print "_____________________"
+		# print "InterfaceIp <-> Router:"
+		# for k,v in asTopo.mapInterfaceipRouterid.items():
+		# 	interfaceIp, routerId = map(plugins.getIpById, [k,v])
+		# 	print "{} <-> {}".format(interfaceIp, routerId)
+		# print "_____________________"
+		# print "Prefix <-> Router:"
+		# for k,v in asTopo.mapPrefixRouterid.items():
+		# 	prefix, routerId = map(plugins.getIpById, [k,v])
+		# 	print "{} <-> {}".format(prefix, routerId)
+		# print "_____________________"
 
 		if pathType=="INTERNAL" or pathType=="INBOUND":
 			r = asTopo.getShortestPaths(srcSeg, dstSeg)
@@ -197,6 +200,9 @@ class RouteAnalyser():
 	def getAsNumberByNetSegment(self, netSegment):
 		ns = netSegment.int()
 		for asNumber,asTopo in self.hzTopo.items():
+			# for i,r in asTopo.mapInterfaceipRouterid.items():
+			# 	i, r = map(plugins.getIpById, [i,r])
+			# 	print "&&& <{}-{}>".format(i,r)
 			if (ns in asTopo.allRouterIds) or asTopo.mapPrefixRouterid.has_key(ns) \
 				or asTopo.mapInterfaceipRouterid.has_key(ns):
 				return asNumber
@@ -204,11 +210,34 @@ class RouteAnalyser():
 			print "NetSengment-{} Couldn't be founded!".format(netSegment)
 			return -1
 
+	def formatResult(self, result):
+		if result["code"]==1:
+			result["message"] = reduce(self.mergeDict, result["message"])
+			result["message"] = reduce(self.mergeDictValues, result["message"].values())
+		return result
+
+	def mergeDict(self, dict1, dict2):
+		result = []
+		l1, l2 = [], []
+		l1 = dict1.values()[0]
+		l2 = dict2.values()[0]
+		k1, k2 = dict1.keys()[0], dict2.keys()[0]
+		for i in l1:
+			for j in l2:
+				result.append(i+j)
+		return {"{}-{}".format(k1, k2): result}
+
+	def mergeDictValues(self, v1, v2):
+		return v1+v2
+
+
 
 
 def test():
 	r = RouteAnalyser()
 	result = r.getOverallRoute("201707282039","192.168.10.2","172.168.16.1",32,32,1,1)
 	print result
+	print r.formatResult(result)
 
-# test()
+#test()
+

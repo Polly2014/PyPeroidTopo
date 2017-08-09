@@ -8,25 +8,37 @@ from IPy import IP
 import NormalLink, AsbrLink
 
 def getNetSegmentByIpMask(ip, mask=32):
-	ip = IP(ip) if isinstance(ip, long) else ip
-	mask = IP(mask) if isinstance(mask, long) else mask
-	return IP(ip).make_net(mask)
+	try:
+		ip = IP(ip) if isinstance(ip, long) else ip
+		if not isinstance(mask, str):
+			mask = IP(mask) if mask>32 else mask
+		#mask = IP(mask) if isinstance(mask, long) else mask
+		return IP(ip).make_net(mask)
+	except Exception, e:
+		print "$$$ netSegment Error:{}-{}".format(Exception, e)
 
 def getPrefixByIpMask(ip, mask):
-	ip = IP(ip) if isinstance(ip, long) else ip
-	mask = IP(mask) if isinstance(mask, long) else mask
-	return IP(ip).make_net(mask).int()
+	#print "Before<<IP:{}[{}], Mask:{}[{}]>>".format(ip,type(ip), mask, type(mask))
+	try:
+		ip = IP(ip) if isinstance(ip, long) else ip
+		if not isinstance(mask, str):
+			mask = IP(mask) if mask>32 else mask
+		#mask = IP(mask) if not isinstance(mask, str) else mask
+		#print "After<<IP:{}[{}], Mask:{}[{}]>>".format(ip,type(ip), mask, type(mask))
+		return IP(ip).make_net(mask).int()
+	except Exception, e:
+		print "$$$ getPrefix Error:{}-{}".format(Exception, e)
+	
 
 def getPrefixlenByIpMask(ip, mask):
-	if isinstance(mask, int):
-		return mask
 	ip = IP(ip) if isinstance(ip, long) else ip
-	mask = IP(mask) if isinstance(mask, long) else mask
+	if not isinstance(mask, str):
+		mask = IP(mask) if mask>32 else mask
 	return IP(ip).make_net(mask).prefixlen()
 
 def getPrefixlenByMask(mask):
-	if isinstance(mask, int):
-		return mask
+	if not isinstance(mask, str):
+		return IP(mask).strBin().count('1') if mask>32 else mask
 	else:
 		return IP(mask).strBin().count('1')
 

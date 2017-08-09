@@ -62,12 +62,23 @@ class OspfTopoGenerator(object):
 			prefix, routerId = link.interface_ip, link.router_id
 			self.addPrefixRouterid(prefix, routerId)
 
+		# for link in self.links:
+		# 	print "{}->{} [{}]".format(*link)
+
+		for p,r in self.mapPrefixRouterid.items():
+			print "{}<->{}".format(p, r)
+
 
 	def addPrefixRouterid(self, prefix, routerId):
+		if routerId not in self.mapPrefixRouterid.keys():
+			self.mapPrefixRouterid[routerId] = routerId
 		self.mapPrefixRouterid[prefix] = routerId
 
 	def getRouteridByPrefix(self, prefix):
-		return self.mapPrefixRouterid[prefix]
+		if self.mapPrefixRouterid.has_key(prefix):
+			return self.mapPrefixRouterid[prefix]
+		else:
+			print "Prefix:{} cann't find router".format(prefix)
 
 	def addLink(self, link):
 		if link not in self.links:
@@ -99,6 +110,6 @@ def test():
 	t = OspfTopoGenerator()
 	t.connectDB(db_config.DB_CONFIG)
 	t.makeOspfTopo("201707282039")
-	print t.getShortestPaths("192.168.2.2", "192.168.5.2")
+	print t.getShortestPaths("192.168.6.2", "192.168.23.1")
 
-test()
+#test()

@@ -287,10 +287,10 @@ class AsTopo():
 				b.setBgpInfo(origin, weight, length, metric, prefix, \
 					nextHop, localPreference, asPath)
 				self.addMapPrefixBgpItem(b)
-		for k,v in self.mapPrefixBgp.items():
-			for b in v:
-				print b
-			print "--------------------"
+		# for k,v in self.mapPrefixBgp.items():
+		# 	for b in v:
+		# 		print b
+		# 	print "--------------------"
 				# bTmp = self.mapPrefixBgp.get(prefix)
 				# if bTmp:
 				# 	#self.addMapPrefixBgp[prefix].append(bTmp)
@@ -422,15 +422,27 @@ class AsTopo():
 
 	# ExternalLsa
 	def getAsbrSegByDstSegment(self, netSegment):
-		prefixLength = netSegment.prefixlen()
-		ns = netSegment.int()
-		while prefixLength>0:
-			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
-			externalLsa = self.mapPrefixExternallas.get(prefix)
-			if externalLsa and externalLsa.getPrefixLength()==prefixLength:
-				asbrId = externalLsa.getAdvRouter()
-				return plugins.getNetSegmentByIpMask(asbrId)
-			prefixLength -= 1
+		try:
+
+			prefixLength = netSegment.prefixlen()
+			ns = netSegment.int()
+			print "PrefixLength:{}\tNetSegment:{}".format(prefixLength, ns)
+			for p,lsa in self.mapPrefixExternallas.items():
+			 	print "Prefix:{}, Lsa:{}".format(p, lsa)
+
+			while prefixLength>0:
+				prefix = plugins.getPrefixByIpMask(ns, prefixLength)
+				externalLsa = self.mapPrefixExternallas.get(prefix)
+				#print "***Lsa:{}".format(externalLsa)
+				if externalLsa and externalLsa.getPrefixLength()==prefixLength:
+					#print "Lsa's prefixLength:{}".format(externalLsa.getPrefixLength())
+					asbrId = externalLsa.getAdvRouter()
+					print "SelectLsa:{}".format(plugins.getNetSegmentByIpMask(asbrId))
+					asbrSeg = plugins.getNetSegmentByIpMask(asbrId)
+					return asbrSeg
+				prefixLength -= 1
+		except Exception,e:
+			print "@@@ AsbrSeg Find Error:{}-{}".format(Exception, e)
 		else:
 			return "Oh, No, Couldn't find the asbrSegment!"
 
@@ -453,9 +465,9 @@ class AsTopo():
 			prefix = plugins.getPrefixByIpMask(ns, prefixLength)
 			bgp_list = self.mapPrefixBgp.get(prefix)
 			print "### prefix:{}".format(plugins.getIpById(prefix))
-			if bgp_list:
-				for bgp in bgp_list:
-					print "### {}".format(bgp)
+			# if bgp_list:
+			# 	for bgp in bgp_list:
+			# 		print "### {}".format(bgp)
 			# if bgp_list:
 			# 	for bgp in bgp_list:
 			# 		nextHop = plugins.getNetSegmentByIpMask(bgp.nextHop)
@@ -468,6 +480,7 @@ class AsTopo():
 					return netSegment
 				print "@@@@@@@@@@ {}".format(bgp)
 				nextHop = plugins.getNetSegmentByIpMask(bgp.nextHop)
+				#nextHop = self.getRouterIdByNetSegment(bgp.nextHop)
 				return nextHop
 
 			# print "###prefix:{}, BGP:{}".format(prefixLength, bgp)

@@ -48,9 +48,9 @@ class IsIsTopoGenerator(object):
 		pTime = plugins.pidToStamp(self.pid)
 
 		isis_link_set = self.session.query(IsisLinkInfo).filter( \
-			HzOspfLinkInfo.create_time<=pTime,HzOspfLinkInfo.end_time>pTime)
+			IsisLinkInfo.create_time<=pTime, IsisLinkInfo.end_time>pTime)
 		isis_router_set = self.session.query(IsisRouterReachability).filter( \
-			HzOspfLinkInfo.create_time<=pTime,HzOspfLinkInfo.end_time>pTime)
+			IsisLinkInfo.create_time<=pTime, IsisLinkInfo.end_time>pTime)
 
 		# Step One: Make Nodes Info
 		for router in isis_router_set.all():
@@ -60,6 +60,8 @@ class IsIsTopoGenerator(object):
 		for link in isis_link_set.all():
 			l = (link.sys_id, link.n_sys_id, link.metric)
 			self.addLink(l)
+		for l in self.links:
+			print "### {}->{} [{}]".format(l[0], l[1], l[2])
 
 
 	def addPrefixRouterid(self, prefix, routerId):
@@ -72,13 +74,14 @@ class IsIsTopoGenerator(object):
 		if link not in self.links:
 			self.links.append(link)
 
-	def getShortestPaths(self, srcSeg, dstSeg):
+	def getShortestPaths(self, srcSeg, dstSeg, srcRouterId, dstRouterId):
 		result = {"code":0, "message":""}
 		g = nx.DiGraph()
 		edges = self.links
 		g.add_weighted_edges_from(edges)
 		try:
-			s, t = map(self.getRouteridByPrefix, [srcSeg, dstSeg])
+			#s, t = map(self.getRouteridByPrefix, [srcSeg, dstSeg])
+			s, t = srcRouterId, dstRouterId
 		except:
 			result["message"] = "Start or End Router Found Error..."
 			return result

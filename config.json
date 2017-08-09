@@ -1,17 +1,17 @@
 {
   "localSet": {
-    "protocol": "isis",
+    "protocol": "ospf",
     "asNum": 1,
     "areaId": "49.0001",
     "isHQ": 1,
-    "interval": 1,
-    "inAdvance": 8,
-    "topN": 20,
-    "localFlowQueryPort": 2222,
+    "interval": 0,
+    "inAdvance": 0,
+    "topN": 0,
+    "localFlowQueryPort": 0,
     "baseUrl": "\/rtxpert\/index.php",
-    "localIp": "127.0.0.1",
+    "localIp": "162.21.3.102",
     "localDBSet": {
-      "ip": "127.0.0.1",
+      "ip": "192.168.1.55",
       "port": "3306",
       "dbname": "rtxpert",
       "username": "root",
@@ -63,8 +63,7 @@
         "53.251.254.80",
         "53.251.254.140",
         "53.251.254.102",
-        "53.251.254.79",
-        "192.168.1.22"
+        "53.251.254.79"
       ],
       "devInfo": [
         {
@@ -86,11 +85,6 @@
           "devIp": "53.251.254.79",
           "devId": "53251079",
           "devName": "\u6d41\u91cf\u6c47\u96c6_79"
-        },
-        {
-          "devIp": "192.168.1.22",
-          "devId": "2211080",
-          "devName": "\u6d41\u91cf\u6c47\u96c6_80"
         }
       ],
       "url_Level1": "127.0.0.1",

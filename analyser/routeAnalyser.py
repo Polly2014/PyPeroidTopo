@@ -73,7 +73,7 @@ class RouteAnalyser():
 				print "curAs==srcAS"
 				srcSegs, dstSeg = self.getAsPath(curAs, "OUTBOUND", srcSegs, dstSeg)
 				print "nextSrcSegs:{}, nextDstSeg:{}".format(srcSegs, dstSeg)
-				curAs = self.getAsNumberByNetSegment(srcSeg)
+				curAs = self.getAsNumberByNetSegment(srcSegs)
 				print "nextAs: {}".format(curAs)
 			else:
 				print "curAs!=srcAs && curAs!=dstAs"
@@ -110,32 +110,59 @@ class RouteAnalyser():
 		# print "_____________________"
 
 		if pathType=="INTERNAL" or pathType=="INBOUND":
-			r = asTopo.getShortestPaths(srcSegs, dstSeg)
-			if r["code"]==1:
-				self.result["code"] = 1
-				self.result["message"].append({asNum:r["message"]})
-			else:
-				self.result["message"] = r["message"]
-			#print "Path: {}".format(self.result)
+			asPath = []
+			for srcSeg in srcSegs:
+				r = asTopo.getShortestPaths(srcSeg, dstSeg)
+				if r["code"]==1:
+					self.result["code"] = 1
+					asPath += r["message"]
+				else:
+					asPath = r["message"]
+					return
+			self.result["message"].append(asPath)
 			return srcSegs, dstSeg
 		else:	# OUTBOUND OR TRANSIT
 			asbrSegs = asTopo.getAsbrSegsByDstSegment(dstSeg)
-			print "asbrSegs:{}".format(asbrSegs)
+			#print "asbrSegs:{}".format(asbrSegs)
+			asPath = []
+			for srcSeg in srcSegs:
+				for asbrSeg in asbrSegs:
+					r = asTopo.getShortestPaths(srcSeg, asbrSeg)
+					if r["code"]==1:
+						asPath += r["message"]
+					else:
+						asPath = r["message"]
+						return
+			self.result["message"].append(asPath)
 			
+			asPath, nextSrcSegs = [], []
+			for asbrSeg in asbrSegs:
+				nextHops = asTopo.getNextHopsByAsbrSegment(asbrSeg)
+				print "asbrSeg:{}-nextHops: {}".format(asbrSeg, nextHops)
+				nextHop = asTopo.getNextHopByNetSegment(dstSeg, nextHops)
+				print "asbrSeg:{}-nextHop: {}".format(asbrSeg, nextHop)
+				nextSrcSeg = self.getNextSegmentByNextHop(nextHop)
+				print "asbrSeg:{}-nextSeg: {}".format(asbrSeg, nextSrcSeg)
+				asPath.append([asbrSeg.strNormal(), nextSrcSeg.strNormal()])
+				if nextSrcSeg not in nextSrcSegs:
+					nextSrcSegs.append(nextSrcSeg)
+			self.result["message"].append(asPath)
+			#print self.result
+			return nextSrcSegs, dstSeg
 
 
 			
-			r = asTopo.getShortestPaths(srcSeg, asbrSeg)
-			if r["code"]==1:
-				self.result["message"].append({asNum:r["message"]})
-			else:
-				self.result["message"] = r["message"]
-			#print "Path: {}".format(self.result)
-			nextHops = asTopo.getNextHopsByAsbrSegment(asbrSeg)
-			print "nextHops: {}".format(nextHops)
-			nextSrcSeg = asTopo.getNextHopByNetSegment(dstSeg, nextHops)
-			print "nextHop:{}".format(nextSrcSeg)
-			return nextSrcSeg, dstSeg
+			# r = asTopo.getShortestPaths(srcSeg, asbrSeg)
+			# if r["code"]==1:
+			# 	self.result["message"].append({asNum:r["message"]})
+			# else:
+			# 	self.result["message"] = r["message"]
+			# #print "Path: {}".format(self.result)
+			# nextHops = asTopo.getNextHopsByAsbrSegment(asbrSeg)
+			# print "nextHops: {}".format(nextHops)
+			# nextSrcSeg = asTopo.getNextHopByNetSegment(dstSeg, nextHops)
+			# print "nextHop:{}".format(nextSrcSeg)
+			# return nextSrcSeg, dstSeg
 
 
 
@@ -203,9 +230,24 @@ class RouteAnalyser():
 			self.result[curAs] = path
 		'''
 
+	def getNextSegmentByNextHop(self, nextHop):
+		ns = nextHop.int()
+		for asNumber,asTopo in self.hzTopo.items():
+			if ns in asTopo.allRouterIds:
+				return nextHop
+			if asTopo.mapPrefixRouterid.has_key(ns):
+				ip = asTopo.getRouterIdByPrefix(ns)
+				return plugins.getNetSegmentByIpMask(ip)
+			if asTopo.mapInterfaceipRouterid.has_key(ns):
+				ip = asTopo.getRouterIdByInterfaceIp(ns)
+				return plugins.getNetSegmentByIpMask(ip)
+		else:
+			print "NextHop's Sengment-{} Couldn't be founded!".format(nextHop)
+			return -1
+
 	def getAsNumberByNetSegment(self, netSegment):
 		if isinstance(netSegment, list):
-			netSegment = netSengment[0]
+			netSegment = netSegment[0]
 		ns = netSegment.int()
 		for asNumber,asTopo in self.hzTopo.items():
 			# for i,r in asTopo.mapInterfaceipRouterid.items():
@@ -218,6 +260,19 @@ class RouteAnalyser():
 			print "NetSengment-{} Couldn't be founded!".format(netSegment)
 			return -1
 
+	def formatResult(self, result):
+		if result["code"]==1:
+			result["message"] = reduce(self.mergeList, result["message"])
+		return result
+
+	def mergeList(self, list1, list2):
+		result = []
+		for i in list1:
+			for j in list2:
+				if i[-1]==j[0]:
+					result.append(i[:-1]+j)
+		return result
+	'''
 	def formatResult(self, result):
 		if result["code"]==1:
 			result["message"] = reduce(self.mergeDict, result["message"])
@@ -237,14 +292,14 @@ class RouteAnalyser():
 
 	def mergeDictValues(self, v1, v2):
 		return v1+v2
-
+	'''
 
 
 
 def test():
 	r = RouteAnalyser()
-	result = r.getOverallRoute("201708101012","192.168.2.1","172.168.14.2",32,32,1,1,"192.168.2.1","192.168.14.2")
-	print result
+	result = r.getOverallRoute("201708101012","192.168.2.1","172.168.17.2",32,32,1,1,"192.168.2.1","172.168.17.1")
+	#print result
 	print r.formatResult(result)
 
 test()

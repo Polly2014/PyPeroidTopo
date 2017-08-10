@@ -19,8 +19,8 @@ routeType = ("INTERNAL", "INBOUND", "OUTBOUND", "TRANSIT")
 class RouteAnalyser():
 	"""docstring for routerAnalyser"""
 	def __init__(self):
-		self.topoFilePath = "topoFile/"
-		#self.topoFilePath = "../topoFile/"
+		#self.topoFilePath = "topoFile/"
+		self.topoFilePath = "../topoFile/"
 		self.isCorrect = True
 		self.hzTopo = {}		# {AsNumber:AsTopo, ...}
 		self.result = {"code":0, "message":[]}
@@ -49,6 +49,7 @@ class RouteAnalyser():
 		# srcSeg = plugins.getNetSegmentByIpMask(srcIp, srcMask)
 		# dstSeg = plugins.getNetSegmentByIpMask(dstIp, dstMask)
 		srcSeg, dstSeg = map(plugins.getNetSegmentByIpMask, [srcRouterId, dstRouterId])
+		srcSegs = [srcSeg]
 		if srcSeg==dstSeg:
 			self.result["message"] = "Source and Target Router are the same one!"
 			return self.result
@@ -70,22 +71,23 @@ class RouteAnalyser():
 			print "curAs!=dstAs"
 			if curAs==srcAs:
 				print "curAs==srcAS"
-				srcSeg, dstSeg = self.getAsPath(curAs, "OUTBOUND", srcSeg, dstSeg)
-				print "nextSrcSeg:{}, nextDstSeg:{}".format(srcSeg, dstSeg)
+				srcSegs, dstSeg = self.getAsPath(curAs, "OUTBOUND", srcSegs, dstSeg)
+				print "nextSrcSegs:{}, nextDstSeg:{}".format(srcSegs, dstSeg)
 				curAs = self.getAsNumberByNetSegment(srcSeg)
 				print "nextAs: {}".format(curAs)
 			else:
 				print "curAs!=srcAs && curAs!=dstAs"
-				srcSeg, dstSeg = self.getAsPath(curAs, "TRANSIT", srcSeg, dstSeg)
-				curAs = self.getAsNumberByNetSegment(srcSeg)
+				srcSegs, dstSeg = self.getAsPath(curAs, "TRANSIT", srcSegs, dstSeg)
+				print "nextSrcSegs:{}, nextDstSeg:{}".format(srcSegs, dstSeg)
+				curAs = self.getAsNumberByNetSegment(srcSegs)
 				print "nextAs: {}".format(curAs)
 		else:
 			print "curAs==dstAS"
-			srcSeg, dstSeg = self.getAsPath(curAs, "INBOUND", srcSeg, dstSeg)
+			srcSegs, dstSeg = self.getAsPath(curAs, "INBOUND", srcSegs, dstSeg)
 		return self.result
 
 
-	def getAsPath(self, asNum, pathType, srcSeg, dstSeg):
+	def getAsPath(self, asNum, pathType, srcSegs, dstSeg):
 		asTopo = self.hzTopo.get(asNum)
 		# print map(plugins.getIpById, asTopo.allRouterIds)
 		# print "Normal Links:"
@@ -108,17 +110,21 @@ class RouteAnalyser():
 		# print "_____________________"
 
 		if pathType=="INTERNAL" or pathType=="INBOUND":
-			r = asTopo.getShortestPaths(srcSeg, dstSeg)
+			r = asTopo.getShortestPaths(srcSegs, dstSeg)
 			if r["code"]==1:
 				self.result["code"] = 1
 				self.result["message"].append({asNum:r["message"]})
 			else:
 				self.result["message"] = r["message"]
 			#print "Path: {}".format(self.result)
-			return srcSeg, dstSeg
+			return srcSegs, dstSeg
 		else:	# OUTBOUND OR TRANSIT
-			asbrSeg = asTopo.getAsbrSegByDstSegment(dstSeg)
-			print "asbrSeg:{}".format(asbrSeg)
+			asbrSegs = asTopo.getAsbrSegsByDstSegment(dstSeg)
+			print "asbrSegs:{}".format(asbrSegs)
+			
+
+
+			
 			r = asTopo.getShortestPaths(srcSeg, asbrSeg)
 			if r["code"]==1:
 				self.result["message"].append({asNum:r["message"]})
@@ -198,6 +204,8 @@ class RouteAnalyser():
 		'''
 
 	def getAsNumberByNetSegment(self, netSegment):
+		if isinstance(netSegment, list):
+			netSegment = netSengment[0]
 		ns = netSegment.int()
 		for asNumber,asTopo in self.hzTopo.items():
 			# for i,r in asTopo.mapInterfaceipRouterid.items():
@@ -235,9 +243,9 @@ class RouteAnalyser():
 
 def test():
 	r = RouteAnalyser()
-	result = r.getOverallRoute("201707282039","192.168.10.2","172.168.16.1",32,32,1,1)
+	result = r.getOverallRoute("201708101012","192.168.2.1","172.168.14.2",32,32,1,1,"192.168.2.1","192.168.14.2")
 	print result
 	print r.formatResult(result)
 
-#test()
+test()
 

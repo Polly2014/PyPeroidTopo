@@ -31,7 +31,11 @@ class ExternalLsa(object):
 		return "Go To{}, From Asbr{}".format(prefix, advRouter)
 
 	def __eq__(self, lsa):
-		return all([self.metric==las.metric, self.linkStateId==las.linkStateId])
+		return all([self.metric==lsa.metric, self.linkStateId==lsa.linkStateId, \
+			self.advRouter==lsa.advRouter])
+
+	def __lt__(self, lsa):
+		return self.metric<lsa.metric
 
 	def setLsaInfo(self, m, a, l, n, e, f):
 		self.metric, self.advRouter, self.linkStateId = m, a, l

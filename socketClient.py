@@ -31,7 +31,9 @@ if __name__ == "__main__":
 		'srcMask': 32,
 		'dstMask': 32,
 		'srcAs': 1,
-		'dstAs': 1
+		'dstAs': 1,
+		'srcRouterId': '192.168.2.2',
+		'dstRouterId': '192.168.14.2'
 	}
 
 	# s = {
